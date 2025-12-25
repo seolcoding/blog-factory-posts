@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "trendkit": {
+      "command": "uv",
+      "args": ["--directory", "/Users/sdh/Dev/02_production/trendkit", "run", "trendkit-mcp"],
+      "description": "Google Trends aggregator - realtime trends, related queries, keyword comparison"
+    },
+    "deepnews": {
+      "type": "sse",
+      "url": "https://deepnews-playmcp.seolcoding.com/sse",
+      "description": "Korean news search, analysis, timeline - 11 tools for comprehensive news coverage"
+    },
+    "naver-search": {
+      "command": "npx",
+      "args": ["-y", "@isnow890/naver-search-mcp"],
+      "env": {
+        "NAVER_CLIENT_ID": "${NAVER_CLIENT_ID}",
+        "NAVER_CLIENT_SECRET": "${NAVER_CLIENT_SECRET}"
+      },
+      "description": "Naver news search, DataLab trends - Korean search portal integration"
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "GitHub operations - create files, commits, PRs for blog publishing"
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "project": "blog-factory",
+  "version": "0.1.0",
+  "last_updated": "2025-12-25",
+  "phases": {
+    "phase_1": {
+      "name": "Core Loop MVP",
+      "status": "in_progress",
+      "features": [
+        {
+          "id": 1,
+          "category": "infrastructure",
+          "description": "Project initialization with uv and directory structure",
+          "passing": true,
+          "implementation_notes": "Created pyproject.toml, directories, MCP config"
+        },
+        {
+          "id": 2,
+          "category": "infrastructure",
+          "description": "MCP server integration (trendkit, deepnews, naver, github)",
+          "passing": false,
+          "steps": [
+            "Verify trendkit MCP connection",
+            "Verify deepnews SSE connection",
+            "Verify naver-search MCP with credentials",
+            "Verify github MCP with token"
+          ]
+        },
+        {
+          "id": 3,
+          "category": "research",
+          "description": "Trend research agent - collect trending topics from multiple sources",
+          "passing": false,
+          "steps": [
+            "Create researcher prompt template",
+            "Implement trend aggregation logic",
+            "Score topics by viral potential",
+            "Output top 3 topics for content creation"
+          ]
+        },
+        {
+          "id": 4,
+          "category": "content",
+          "description": "Content writer agent - generate blog posts from topics",
+          "passing": false,
+          "steps": [
+            "Create writer prompt template",
+            "Implement SEO optimization",
+            "Generate frontmatter metadata",
+            "Quality gate validation (SEO score > 80)"
+          ]
+        },
+        {
+          "id": 5,
+          "category": "publish",
+          "description": "Publisher agent - commit and deploy to GitHub Pages",
+          "passing": false,
+          "steps": [
+            "Create Jekyll-compatible post format",
+            "Commit to _posts directory",
+            "Trigger GitHub Pages build",
+            "Verify deployment success"
+          ]
+        },
+        {
+          "id": 6,
+          "category": "orchestration",
+          "description": "Main orchestrator loop - coordinate all agents",
+          "passing": false,
+          "steps": [
+            "Implement decision loop (SENSE-PLAN-DELEGATE-CREATE-PUBLISH)",
+            "Session continuity with progress files",
+            "Error handling and recovery",
+            "Iteration control"
+          ]
+        }
+      ]
+    },
+    "phase_2": {
+      "name": "Feedback Loop",
+      "status": "pending",
+      "features": [
+        {
+          "id": 7,
+          "category": "feedback",
+          "description": "Telegram notification system",
+          "passing": false
+        },
+        {
+          "id": 8,
+          "category": "feedback",
+          "description": "User approval workflow via Telegram",
+          "passing": false
+        },
+        {
+          "id": 9,
+          "category": "analytics",
+          "description": "Performance analysis agent",
+          "passing": false
+        },
+        {
+          "id": 10,
+          "category": "learning",
+          "description": "Viral pattern learning and memory",
+          "passing": false
+        }
+      ]
+    },
+    "phase_3": {
+      "name": "Scale & Optimize",
+      "status": "pending",
+      "features": [
+        {
+          "id": 11,
+          "category": "social",
+          "description": "SNS multi-platform posting (X, Threads)",
+          "passing": false
+        },
+        {
+          "id": 12,
+          "category": "content",
+          "description": "Image auto-generation",
+          "passing": false
+        },
+        {
+          "id": 13,
+          "category": "analytics",
+          "description": "Performance dashboard",
+          "passing": false
+        }
+      ]
+    }
+  },
+  "statistics": {
+    "total_features": 13,
+    "passing": 1,
+    "failing": 12,
+    "completion_percentage": 7.7
+  }
+}

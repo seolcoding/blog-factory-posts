@@ -1,0 +1,38 @@
+# Blog Factory - Session Progress
+
+## Current Session: 2025-12-25
+
+### Completed
+- [x] Project initialization
+- [x] Directory structure created
+- [x] pyproject.toml configured
+- [x] MCP servers configured (trendkit, deepnews, naver-search, github)
+- [x] Environment template created
+
+### In Progress
+- [ ] MCP connection verification
+- [ ] Feature #2: MCP server integration testing
+
+### Next Steps
+1. Copy .env.example to .env and fill credentials
+2. Run scripts/init.sh to initialize environment
+3. Verify each MCP server connection
+4. Begin Feature #3: Trend research agent
+
+### Blockers
+- None currently
+
+### Notes
+- Using Anthropic's two-agent pattern (initializer + coding agent)
+- Feature list tracked in data/feature_list.json
+- Session continuity maintained via this file + git commits
+
+---
+
+## Session History
+
+### 2025-12-25 (Initial Setup)
+- Created project structure based on CLAUDE.md specification
+- Integrated internal MCP servers: trendkit, deepnews
+- Configured external MCP servers: naver-search, github
+- Applied Anthropic's autonomous-coding patterns
