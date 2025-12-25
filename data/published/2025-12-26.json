@@ -1,0 +1,18 @@
+[
+  {
+    "status": "success",
+    "post": {
+      "title": "2026년 한국 AI 기본법 시행: 세계가 주목하는 AI 규제의 새로운 기준",
+      "filename": "2025-12-26-korea-ai-basic-act.md",
+      "url": "https://seolcoding.github.io/blog-factory-posts/posts/2025-12-26-korea-ai-basic-act/",
+      "commit_sha": "3dd27ba",
+      "published_at": "2025-12-26T00:28:30.756932"
+    },
+    "error": null,
+    "metrics": {
+      "seo_score": 88,
+      "word_count": 1500,
+      "time_to_publish": "0s"
+    }
+  }
+]

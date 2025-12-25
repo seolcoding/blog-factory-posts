@@ -1,0 +1,61 @@
+{
+  "timestamp": "2025-12-26T00:25:57.363451",
+  "topics": [
+    {
+      "rank": 1,
+      "keyword": "2026 한국 AI 기본법",
+      "score": 92,
+      "velocity": "rising",
+      "volume": "10만+",
+      "angle": "세계 최초 AI 규제 체계 시행 - EU 다음으로 두 번째 종합 AI 법률",
+      "related_keywords": [
+        "AI 규제",
+        "AI 기본법",
+        "인공지능 법률",
+        "AI 저작권"
+      ],
+      "sources": [
+        "koreaherald",
+        "digitimes",
+        "chambers"
+      ]
+    },
+    {
+      "rank": 2,
+      "keyword": "한국 AI 인프라 투자",
+      "score": 88,
+      "velocity": "rising",
+      "volume": "5만+",
+      "angle": "2026년 9.9조원 AI 예산 - NPU, GPU 이중 전략",
+      "related_keywords": [
+        "K-NPU",
+        "6G",
+        "AI 인프라",
+        "국가 AI 전략"
+      ],
+      "sources": [
+        "digitimes",
+        "cdomagazine"
+      ]
+    },
+    {
+      "rank": 3,
+      "keyword": "Upstage AI 글로벌 진출",
+      "score": 85,
+      "velocity": "stable",
+      "volume": "3만+",
+      "angle": "한국 AI 기업의 미국 시장 성공 사례 - 1.57억 달러 투자 유치",
+      "related_keywords": [
+        "Upstage",
+        "Solar LLM",
+        "AWS",
+        "AMD"
+      ],
+      "sources": [
+        "yahoo",
+        "prnewswire"
+      ]
+    }
+  ],
+  "next_refresh": null
+}

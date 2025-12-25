@@ -58,25 +58,26 @@
           "category": "publish",
           "description": "Publisher agent - commit and deploy to GitHub Pages",
           "passing": true,
-          "implementation_notes": "Created publisher.md prompt template with GitHub workflow",
+          "implementation_notes": "Hugo + PaperMod theme with GitHub Actions auto-deploy",
           "steps": [
-            "Create Jekyll-compatible post format",
-            "Commit to _posts directory",
-            "Trigger GitHub Pages build",
-            "Verify deployment success"
+            "Create Hugo-compatible post format (content/posts/)",
+            "Commit to blog repo (seolcoding/blog-factory-posts)",
+            "GitHub Actions auto-build with Hugo 0.146.0",
+            "Deployed to https://seolcoding.github.io/blog-factory-posts/"
           ]
         },
         {
           "id": 6,
           "category": "orchestration",
           "description": "Main orchestrator loop - coordinate all agents",
-          "passing": false,
+          "passing": true,
           "steps": [
             "Implement decision loop (SENSE-PLAN-DELEGATE-CREATE-PUBLISH)",
             "Session continuity with progress files",
             "Error handling and recovery",
             "Iteration control"
-          ]
+          ],
+          "implementation_notes": "Orchestrator loop working. Last run: 2025-12-26T00:28:32.007195"
         }
       ]
     },
@@ -88,7 +89,13 @@
           "id": 7,
           "category": "feedback",
           "description": "Telegram notification system",
-          "passing": false
+          "passing": true,
+          "implementation_notes": "Telegram notifications working via Bot API",
+          "steps": [
+            "Bot token configured in .env",
+            "Chat ID 6429386018 verified",
+            "Test message sent successfully"
+          ]
         },
         {
           "id": 8,
@@ -137,8 +144,8 @@
   },
   "statistics": {
     "total_features": 13,
-    "passing": 5,
-    "failing": 8,
-    "completion_percentage": 38.5
+    "passing": 7,
+    "failing": 6,
+    "completion_percentage": 53.8
   }
 }

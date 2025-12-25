@@ -29,7 +29,7 @@ def load_feature_list() -> dict:
 
 def get_next_feature(feature_list: dict) -> dict | None:
     """Find the next incomplete feature to work on."""
-    for phase_name, phase_data in feature_list["phases"].items():
+    for _phase_name, phase_data in feature_list["phases"].items():
         if phase_data["status"] == "pending":
             continue
         for feature in phase_data.get("features", []):

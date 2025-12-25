@@ -1,38 +1,65 @@
 # Blog Factory - Session Progress
 
-## Current Session: 2025-12-25
+## Current Session: 2025-12-26
 
 ### Completed
-- [x] Project initialization
-- [x] Directory structure created
-- [x] pyproject.toml configured
+- [x] Project initialization (pyproject.toml, directory structure)
 - [x] MCP servers configured (trendkit, deepnews, naver-search, github)
-- [x] Environment template created
+- [x] Agent prompts created (researcher.md, writer.md, publisher.md)
+- [x] GitHub repo created: seolcoding/blog-factory-posts
+- [x] Hugo + PaperMod theme setup with SEO optimization
+- [x] GitHub Actions auto-deploy configured (Hugo 0.146.0)
+- [x] Blog deployed: https://seolcoding.github.io/blog-factory-posts/
+- [x] Naver API verified and working
+- [x] Telegram bot configured (@seolcoding_blog_factory_bot)
+- [x] Telegram chat connection verified (chat_id: 6429386018)
 
 ### In Progress
-- [ ] MCP connection verification
-- [ ] Feature #2: MCP server integration testing
+- [ ] Feature #6: Main orchestrator loop implementation
+- [ ] Feature #8: User approval workflow via Telegram
+
+### Statistics
+- Features: 6/13 passing (46.2%)
+- Phase 1: 5/6 complete
+- Phase 2: 1/4 complete
+- Phase 3: 0/3 complete
 
 ### Next Steps
-1. Copy .env.example to .env and fill credentials
-2. Run scripts/init.sh to initialize environment
-3. Verify each MCP server connection
-4. Begin Feature #3: Trend research agent
+1. Implement main orchestrator decision loop
+2. Create Telegram approval workflow (approve/reject commands)
+3. Test end-to-end content generation flow
+4. Begin performance analysis agent (Feature #9)
 
 ### Blockers
 - None currently
 
 ### Notes
-- Using Anthropic's two-agent pattern (initializer + coding agent)
+- Using Anthropic's two-agent pattern (orchestrator + workers)
+- Hugo replaced Jekyll for better SEO and performance
+- Telegram bot ready for notifications and user approval
 - Feature list tracked in data/feature_list.json
-- Session continuity maintained via this file + git commits
 
 ---
 
 ## Session History
+
+### 2025-12-26 (Hugo & Telegram Setup)
+- Migrated from Jekyll to Hugo with PaperMod theme
+- Fixed Hugo version compatibility (0.146.0 required)
+- Created GitHub Pages blog with auto-deploy
+- Configured and verified Telegram bot connection
+- Updated all agent prompts for Hugo workflow
+- Progress: 38.5% -> 46.2%
 
 ### 2025-12-25 (Initial Setup)
 - Created project structure based on CLAUDE.md specification
 - Integrated internal MCP servers: trendkit, deepnews
 - Configured external MCP servers: naver-search, github
 - Applied Anthropic's autonomous-coding patterns
+- Created agent prompts: researcher, writer, publisher
+- Created main.py entry point
+
+[2025-12-26 00:25:57] Research saved: 2025-12-26-00.json
+[2025-12-26 00:26:57] Draft saved: 2025-12-26-2026-한국-ai-기본법.md
+[2025-12-26 00:28:30] Published: 2026년 한국 AI 기본법 시행: 세계가 주목하는 AI 규제의 새로운 기준 -> https://seolcoding.github.io/blog-factory-posts/posts/2025-12-26-korea-ai-basic-act/
+[2025-12-26 00:28:33] Cycle complete: 1 posts in 0m 1s
