@@ -37,9 +37,9 @@ Example: `2025-12-25-ai-trend-analysis.md`
 
 Using GitHub MCP:
 ```
-1. Create file in blog/_posts/
+1. Create file in blog/content/posts/
 2. Commit with descriptive message
-3. Push to main/gh-pages branch
+3. Push to main branch (Hugo GitHub Actions auto-deploy)
 ```
 
 Commit message format:
@@ -93,7 +93,7 @@ Publish result JSON:
 | `401 Unauthorized` | Invalid GitHub token | Refresh PAT |
 | `409 Conflict` | File already exists | Use unique filename |
 | `422 Validation` | Invalid frontmatter | Fix YAML syntax |
-| `Build Failed` | Jekyll error | Check markdown |
+| `Build Failed` | Hugo error | Check markdown/frontmatter |
 
 ### Retry Logic
 
@@ -114,10 +114,10 @@ Publish result JSON:
 
 For posts requiring approval:
 ```
-1. Save to blog/_drafts/ instead of _posts/
+1. Set draft: true in frontmatter
 2. Notify via Telegram for review
 3. Wait for approval command
-4. Move to _posts/ when approved
+4. Set draft: false when approved
 ```
 
 ## Session Continuity

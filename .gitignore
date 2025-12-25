@@ -62,3 +62,4 @@ blog/_drafts/*.md
 !content/drafts/.gitkeep
 !content/review/.gitkeep
 !blog/_drafts/.gitkeep
+blog/
