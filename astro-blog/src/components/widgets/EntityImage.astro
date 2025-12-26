@@ -1,0 +1,212 @@
+---
+/**
+ * EntityImage Component
+ *
+ * Fetches and displays an entity image from Wikipedia/Wikidata
+ * with proper CC BY-SA attribution.
+ *
+ * @example
+ * <EntityImage name="Elon Musk" size="medium" />
+ * <EntityImage name="삼성전자" lang="ko" showAttribution={true} />
+ */
+
+import {
+  getEntityImage,
+  generateAttribution,
+  generatePlainAttribution,
+  type EntityImage as EntityImageType,
+} from "@/utils/entityImage";
+
+export interface Props {
+  /** The name of the entity (person, organization, country, etc.) */
+  name: string;
+  /** Preferred language for Wikipedia lookup */
+  lang?: "en" | "ko";
+  /** Image size preset */
+  size?: "small" | "medium" | "large" | "full";
+  /** Custom thumbnail width in pixels (overrides size preset) */
+  thumbWidth?: number;
+  /** Whether to show attribution below the image */
+  showAttribution?: boolean;
+  /** Alt text override (defaults to entity name) */
+  alt?: string;
+  /** Additional CSS classes for the container */
+  class?: string;
+  /** Whether to make the image a link to the full resolution */
+  linkToFull?: boolean;
+  /** Whether to lazy load the image */
+  loading?: "lazy" | "eager";
+  /** Fallback image URL if entity image is not found */
+  fallbackSrc?: string;
+  /** Caption text to display below the image */
+  caption?: string;
+  /** Whether to show rounded corners */
+  rounded?: boolean;
+}
+
+const {
+  name,
+  lang = "en",
+  size = "medium",
+  thumbWidth,
+  showAttribution = true,
+  alt,
+  class: className,
+  linkToFull = true,
+  loading = "lazy",
+  fallbackSrc,
+  caption,
+  rounded = true,
+} = Astro.props;
+
+// Size presets in pixels
+const sizeMap: Record<string, number> = {
+  small: 200,
+  medium: 400,
+  large: 600,
+  full: 1200,
+};
+
+const width = thumbWidth ?? sizeMap[size] ?? 400;
+
+// Fetch the entity image
+let entityImage: EntityImageType | null = null;
+let error: string | null = null;
+
+try {
+  entityImage = await getEntityImage(name, {
+    thumbSize: width,
+    preferredLanguage: lang,
+  });
+} catch (e) {
+  error = e instanceof Error ? e.message : "Failed to fetch entity image";
+}
+
+const hasImage = Boolean(entityImage?.thumbnailUrl);
+const imageUrl = hasImage ? entityImage!.thumbnailUrl : fallbackSrc;
+const fullUrl = entityImage?.imageUrl;
+const altText = alt ?? entityImage?.entityName ?? name;
+const attributionHtml = entityImage ? generateAttribution(entityImage) : "";
+const attributionPlain = entityImage
+  ? generatePlainAttribution(entityImage)
+  : "";
+
+// Container width class based on size
+const widthClass: Record<string, string> = {
+  small: "max-w-[200px]",
+  medium: "max-w-[400px]",
+  large: "max-w-[600px]",
+  full: "max-w-full",
+};
+---
+
+<figure
+  class:list={[
+    "entity-image-container",
+    widthClass[size] ?? "max-w-[400px]",
+    className,
+  ]}
+>
+  {
+    imageUrl ? (
+      <>
+        {linkToFull && fullUrl ? (
+          <a
+            href={fullUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`View full image of ${altText}`}
+            class="entity-image-link block"
+          >
+            <img
+              src={imageUrl}
+              alt={altText}
+              loading={loading}
+              class:list={[
+                "entity-image w-full h-auto",
+                rounded && "rounded-lg",
+              ]}
+              width={width}
+              decoding="async"
+            />
+          </a>
+        ) : (
+          <img
+            src={imageUrl}
+            alt={altText}
+            loading={loading}
+            class:list={[
+              "entity-image w-full h-auto",
+              rounded && "rounded-lg",
+            ]}
+            width={width}
+            decoding="async"
+          />
+        )}
+
+        {(caption || showAttribution) && (
+          <figcaption class="entity-image-caption mt-2 text-sm text-gray-600 dark:text-gray-400">
+            {caption && <p class="entity-image-caption-text mb-1">{caption}</p>}
+            {showAttribution && entityImage && (
+              <p
+                class="entity-image-attribution text-xs opacity-75"
+                title={attributionPlain}
+                set:html={attributionHtml}
+              />
+            )}
+          </figcaption>
+        )}
+      </>
+    ) : (
+      <div
+        class:list={[
+          "entity-image-placeholder flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600",
+          rounded && "rounded-lg",
+        ]}
+        style={`width: ${width}px; height: ${Math.round(width * 0.75)}px;`}
+        role="img"
+        aria-label={`No image available for ${name}`}
+      >
+        <div class="text-center p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-12 w-12 mx-auto mb-2 opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <span class="text-xs block">
+            {error ?? `No image for "${name}"`}
+          </span>
+        </div>
+      </div>
+    )
+  }
+</figure>
+
+<style>
+  .entity-image-container {
+    display: inline-block;
+  }
+
+  .entity-image-link:hover .entity-image {
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+  }
+
+  .entity-image-attribution a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .entity-image-attribution a:hover {
+    opacity: 0.8;
+  }
+</style>

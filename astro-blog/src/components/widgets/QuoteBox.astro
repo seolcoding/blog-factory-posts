@@ -1,0 +1,113 @@
+---
+/**
+ * QuoteBox - Styled blockquote with author attribution
+ *
+ * @example
+ * <QuoteBox
+ *   quote="The only way to do great work is to love what you do."
+ *   author="Steve Jobs"
+ *   role="Co-founder, Apple"
+ * />
+ *
+ * <QuoteBox
+ *   quote="Innovation distinguishes between a leader and a follower."
+ *   author="Steve Jobs"
+ *   variant="accent"
+ * />
+ */
+
+export interface Props {
+  /** The quote text */
+  quote: string;
+  /** Author name */
+  author?: string;
+  /** Author's role, title, or source */
+  role?: string;
+  /** Author's image URL */
+  image?: string;
+  /** Visual variant */
+  variant?: "default" | "accent" | "minimal" | "card";
+  /** Additional CSS classes */
+  class?: string;
+}
+
+const {
+  quote,
+  author,
+  role,
+  image,
+  variant = "default",
+  class: className = "",
+} = Astro.props;
+
+const variants = {
+  default: {
+    container:
+      "border-l-4 border-accent bg-muted/30 pl-6 pr-4 py-4 rounded-r-lg",
+    quote: "text-foreground italic",
+    icon: "text-accent/60",
+  },
+  accent: {
+    container:
+      "border-l-4 border-accent bg-accent/10 pl-6 pr-4 py-4 rounded-r-lg",
+    quote: "text-foreground italic",
+    icon: "text-accent",
+  },
+  minimal: {
+    container: "border-l-2 border-border pl-4",
+    quote: "text-foreground/80 italic",
+    icon: "text-muted-foreground",
+  },
+  card: {
+    container:
+      "bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow",
+    quote: "text-foreground",
+    icon: "text-accent/70",
+  },
+};
+
+const styles = variants[variant];
+---
+
+<figure class:list={["relative", styles.container, className]}>
+  <!-- Decorative quote mark -->
+  <svg
+    class:list={["absolute -top-2 -left-1 h-8 w-8 opacity-50", styles.icon]}
+    fill="currentColor"
+    viewBox="0 0 32 32"
+  >
+    <path
+      d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z"
+    ></path>
+  </svg>
+
+  <!-- Quote text -->
+  <blockquote class:list={["text-lg leading-relaxed relative z-10", styles.quote]}>
+    <slot>
+      {quote}
+    </slot>
+  </blockquote>
+
+  <!-- Attribution -->
+  {
+    author && (
+      <figcaption class="mt-4 flex items-center gap-3">
+        {image && (
+          <img
+            src={image}
+            alt={author}
+            class="h-10 w-10 rounded-full object-cover border border-border"
+          />
+        )}
+        <div>
+          <cite class="not-italic font-semibold text-foreground block">
+            {author}
+          </cite>
+          {role && (
+            <span class="text-sm text-muted-foreground">{role}</span>
+          )}
+        </div>
+      </figcaption>
+    )
+  }
+</figure>

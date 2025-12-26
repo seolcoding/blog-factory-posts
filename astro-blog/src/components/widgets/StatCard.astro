@@ -1,0 +1,109 @@
+---
+/**
+ * StatCard - Display statistics with optional trend indicator
+ *
+ * @example
+ * <StatCard value="2.5M" label="Monthly Views" trend="+12%" trendDirection="up" />
+ * <StatCard value="$45,231" label="Revenue" trend="-3.2%" trendDirection="down" />
+ * <StatCard value="98.5%" label="Uptime" />
+ */
+
+export interface Props {
+  /** The main statistic value to display */
+  value: string | number;
+  /** Descriptive label for the statistic */
+  label: string;
+  /** Optional trend percentage or description */
+  trend?: string;
+  /** Direction of the trend for styling */
+  trendDirection?: "up" | "down" | "neutral";
+  /** Optional icon slot name */
+  icon?: string;
+  /** Optional description text */
+  description?: string;
+  /** Additional CSS classes */
+  class?: string;
+}
+
+const {
+  value,
+  label,
+  trend,
+  trendDirection = "neutral",
+  description,
+  class: className = "",
+} = Astro.props;
+
+const trendColors = {
+  up: "text-success",
+  down: "text-destructive",
+  neutral: "text-muted-foreground",
+};
+
+const trendIcons = {
+  up: "M5 12l5-5 5 5",
+  down: "M5 12l5 5 5-5",
+  neutral: "M4 12h16",
+};
+---
+
+<div
+  class:list={[
+    "group relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/50",
+    className,
+  ]}
+>
+  <!-- Background gradient effect -->
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+  >
+  </div>
+
+  <div class="relative">
+    <!-- Icon slot -->
+    <slot name="icon" />
+
+    <!-- Label -->
+    <p class="text-sm font-medium text-muted-foreground mb-2">
+      {label}
+    </p>
+
+    <!-- Value -->
+    <div class="flex items-baseline gap-3">
+      <p
+        class="text-3xl font-bold tracking-tight text-foreground tabular-nums"
+      >
+        {value}
+      </p>
+
+      <!-- Trend indicator -->
+      {
+        trend && (
+          <div class={`flex items-center gap-1 text-sm ${trendColors[trendDirection]}`}>
+            <svg
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d={trendIcons[trendDirection]}
+              />
+            </svg>
+            <span class="font-medium">{trend}</span>
+          </div>
+        )
+      }
+    </div>
+
+    <!-- Description -->
+    {
+      description && (
+        <p class="mt-2 text-sm text-muted-foreground">{description}</p>
+      )
+    }
+  </div>
+</div>

@@ -1,0 +1,87 @@
+---
+/**
+ * Demo page for EntityImage component
+ * Visit /entity-image-demo to see the component in action
+ */
+import Layout from "@/layouts/Layout.astro";
+import EntityImage from "@/components/widgets/EntityImage.astro";
+---
+
+<Layout>
+  <main class="mx-auto max-w-4xl px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8">EntityImage Component Demo</h1>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">People</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div>
+          <h3 class="font-medium mb-2">Elon Musk (Medium)</h3>
+          <EntityImage name="Elon Musk" size="medium" />
+        </div>
+        <div>
+          <h3 class="font-medium mb-2">Tim Cook (Small)</h3>
+          <EntityImage name="Tim Cook" size="small" />
+        </div>
+        <div>
+          <h3 class="font-medium mb-2">Satya Nadella (Large)</h3>
+          <EntityImage name="Satya Nadella" size="large" />
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Organizations (Korean)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-medium mb-2">Samsung Electronics</h3>
+          <EntityImage name="삼성전자" lang="ko" size="medium" />
+        </div>
+        <div>
+          <h3 class="font-medium mb-2">Hyundai Motor</h3>
+          <EntityImage name="현대자동차" lang="ko" size="medium" />
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Countries</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div>
+          <h3 class="font-medium mb-2">South Korea</h3>
+          <EntityImage name="South Korea" size="small" caption="The Republic of Korea" />
+        </div>
+        <div>
+          <h3 class="font-medium mb-2">Japan</h3>
+          <EntityImage name="Japan" size="small" />
+        </div>
+        <div>
+          <h3 class="font-medium mb-2">United States</h3>
+          <EntityImage name="United States" size="small" />
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Custom Options</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-medium mb-2">No Attribution</h3>
+          <EntityImage name="Albert Einstein" size="medium" showAttribution={false} />
+        </div>
+        <div>
+          <h3 class="font-medium mb-2">With Custom Caption</h3>
+          <EntityImage
+            name="Marie Curie"
+            size="medium"
+            caption="Pioneer in radioactivity research"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Error State (Non-existent Entity)</h2>
+      <EntityImage name="xyznonexistententity12345" size="small" />
+    </section>
+  </main>
+</Layout>

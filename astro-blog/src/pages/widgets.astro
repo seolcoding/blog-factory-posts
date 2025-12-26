@@ -1,0 +1,354 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Main from "@/layouts/Main.astro";
+import { SITE } from "@/config";
+
+// Import all widget components
+import StatCard from "@/components/widgets/StatCard.astro";
+import ProfileCard from "@/components/widgets/ProfileCard.astro";
+import QuoteBox from "@/components/widgets/QuoteBox.astro";
+import ComparisonTable from "@/components/widgets/ComparisonTable.astro";
+import TimelineItem from "@/components/widgets/TimelineItem.astro";
+import HighlightBox from "@/components/widgets/HighlightBox.astro";
+
+// Sample data for ComparisonTable
+const planColumns = [
+  { name: "Free", highlight: false, subtitle: "$0/mo" },
+  { name: "Pro", highlight: true, subtitle: "$29/mo" },
+  { name: "Enterprise", highlight: false, subtitle: "Custom" },
+];
+
+const planRows = [
+  { feature: "Storage", values: ["5GB", "100GB", "Unlimited"] },
+  { feature: "API Calls", values: ["1,000/mo", "100,000/mo", "Unlimited"] },
+  { feature: "Team Members", values: ["1", "10", "Unlimited"] },
+  { feature: "Priority Support", values: [false, true, true] },
+  { feature: "Custom Branding", values: [false, false, true] },
+  { feature: "Analytics", values: [false, true, true] },
+];
+---
+
+<Layout title={`Widget Showcase | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Widget Showcase" pageDesc="A collection of rich, reusable widget components for blog content.">
+
+    <!-- StatCard Section -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-foreground">StatCard</h2>
+      <p class="text-muted-foreground mb-6">
+        Display statistics with optional trend indicators. Perfect for dashboards, reports, and data-driven content.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <StatCard
+          value="2.5M"
+          label="Monthly Views"
+          trend="+12.5%"
+          trendDirection="up"
+          description="vs last month"
+        />
+        <StatCard
+          value="$45,231"
+          label="Revenue"
+          trend="-3.2%"
+          trendDirection="down"
+          description="vs last quarter"
+        />
+        <StatCard
+          value="98.5%"
+          label="Uptime"
+          trend="0%"
+          trendDirection="neutral"
+          description="Last 30 days"
+        />
+      </div>
+
+      <details class="bg-muted/30 rounded-lg p-4">
+        <summary class="cursor-pointer font-medium text-foreground">Usage Code</summary>
+        <pre class="mt-4 bg-card p-4 rounded-lg overflow-x-auto text-sm"><code>{`<StatCard
+  value="2.5M"
+  label="Monthly Views"
+  trend="+12.5%"
+  trendDirection="up"
+  description="vs last month"
+/>`}</code></pre>
+      </details>
+    </section>
+
+    <!-- ProfileCard Section -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-foreground">ProfileCard</h2>
+      <p class="text-muted-foreground mb-6">
+        Display person or entity profiles with images, social links, and descriptions.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <ProfileCard
+          name="Jane Smith"
+          title="Senior Developer"
+          image="https://i.pravatar.cc/150?img=5"
+          description="Building amazing products for 10+ years. Passionate about clean code and user experience."
+          socials={[
+            { platform: "twitter", url: "#" },
+            { platform: "github", url: "#" },
+            { platform: "linkedin", url: "#" },
+          ]}
+        />
+        <ProfileCard
+          name="John Doe"
+          title="Product Manager"
+          description="Leading product strategy and roadmap. Former engineer turned PM."
+          socials={[
+            { platform: "twitter", url: "#" },
+            { platform: "website", url: "#" },
+          ]}
+        />
+      </div>
+
+      <h3 class="text-lg font-medium mb-4 text-foreground">Horizontal Variant</h3>
+      <div class="space-y-4 mb-6">
+        <ProfileCard
+          name="Alex Johnson"
+          title="Design Lead"
+          image="https://i.pravatar.cc/150?img=12"
+          description="Creating beautiful interfaces and design systems."
+          variant="horizontal"
+          socials={[
+            { platform: "twitter", url: "#" },
+          ]}
+        />
+      </div>
+
+      <details class="bg-muted/30 rounded-lg p-4">
+        <summary class="cursor-pointer font-medium text-foreground">Usage Code</summary>
+        <pre class="mt-4 bg-card p-4 rounded-lg overflow-x-auto text-sm"><code>{`<ProfileCard
+  name="Jane Smith"
+  title="Senior Developer"
+  image="https://example.com/avatar.jpg"
+  description="Building amazing products..."
+  socials={[
+    { platform: "twitter", url: "#" },
+    { platform: "github", url: "#" },
+  ]}
+/>
+
+<!-- Horizontal variant -->
+<ProfileCard variant="horizontal" ... />`}</code></pre>
+      </details>
+    </section>
+
+    <!-- QuoteBox Section -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-foreground">QuoteBox</h2>
+      <p class="text-muted-foreground mb-6">
+        Styled blockquotes with author attribution. Multiple variants available.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <QuoteBox
+          quote="The only way to do great work is to love what you do."
+          author="Steve Jobs"
+          role="Co-founder, Apple"
+          variant="default"
+        />
+
+        <QuoteBox
+          quote="Innovation distinguishes between a leader and a follower."
+          author="Steve Jobs"
+          variant="accent"
+        />
+
+        <QuoteBox
+          quote="Stay hungry, stay foolish."
+          author="Steve Jobs"
+          role="Stanford Commencement Speech, 2005"
+          variant="card"
+          image="https://i.pravatar.cc/150?img=60"
+        />
+
+        <QuoteBox
+          quote="Design is not just what it looks like and feels like. Design is how it works."
+          variant="minimal"
+        />
+      </div>
+
+      <details class="bg-muted/30 rounded-lg p-4">
+        <summary class="cursor-pointer font-medium text-foreground">Usage Code</summary>
+        <pre class="mt-4 bg-card p-4 rounded-lg overflow-x-auto text-sm"><code>{`<QuoteBox
+  quote="The only way to do great work..."
+  author="Steve Jobs"
+  role="Co-founder, Apple"
+  variant="default" | "accent" | "minimal" | "card"
+/>`}</code></pre>
+      </details>
+    </section>
+
+    <!-- ComparisonTable Section -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-foreground">ComparisonTable</h2>
+      <p class="text-muted-foreground mb-6">
+        Side-by-side comparison widgets. Great for pricing tables, feature comparisons, and product reviews.
+      </p>
+
+      <div class="mb-6">
+        <ComparisonTable
+          title="Plan Comparison"
+          columns={planColumns}
+          rows={planRows}
+        />
+      </div>
+
+      <details class="bg-muted/30 rounded-lg p-4">
+        <summary class="cursor-pointer font-medium text-foreground">Usage Code</summary>
+        <pre class="mt-4 bg-card p-4 rounded-lg overflow-x-auto text-sm"><code>{`<ComparisonTable
+  title="Plan Comparison"
+  columns={[
+    { name: "Free", highlight: false, subtitle: "$0/mo" },
+    { name: "Pro", highlight: true, subtitle: "$29/mo" },
+    { name: "Enterprise", highlight: false, subtitle: "Custom" },
+  ]}
+  rows={[
+    { feature: "Storage", values: ["5GB", "100GB", "Unlimited"] },
+    { feature: "Support", values: [false, true, true] },
+  ]}
+/>`}</code></pre>
+      </details>
+    </section>
+
+    <!-- TimelineItem Section -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-foreground">TimelineItem</h2>
+      <p class="text-muted-foreground mb-6">
+        Display chronological events. Perfect for history, changelogs, and roadmaps.
+      </p>
+
+      <div class="mb-6">
+        <TimelineItem
+          date="2024"
+          title="Company Founded"
+          description="Started our journey with a small team of 3 passionate developers."
+          variant="accent"
+        />
+        <TimelineItem
+          date="March 2024"
+          title="Series A Funding"
+          description="Raised $10M to expand operations and grow the team."
+          variant="success"
+        />
+        <TimelineItem
+          date="June 2024"
+          title="Product Launch"
+          description="Launched our flagship product to the public."
+          variant="default"
+        />
+        <TimelineItem
+          date="December 2024"
+          title="1M Users Milestone"
+          description="Reached one million active users worldwide."
+          variant="accent"
+          isLast={true}
+        />
+      </div>
+
+      <details class="bg-muted/30 rounded-lg p-4">
+        <summary class="cursor-pointer font-medium text-foreground">Usage Code</summary>
+        <pre class="mt-4 bg-card p-4 rounded-lg overflow-x-auto text-sm"><code>{`<TimelineItem
+  date="2024"
+  title="Company Founded"
+  description="Started our journey..."
+  variant="default" | "accent" | "success" | "warning"
+  isLast={false}
+/>`}</code></pre>
+      </details>
+    </section>
+
+    <!-- HighlightBox Section -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-foreground">HighlightBox</h2>
+      <p class="text-muted-foreground mb-6">
+        Colored callout boxes for important content. Use for tips, warnings, info, and success messages.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <HighlightBox type="info" title="Did you know?">
+          Astro ships zero JavaScript by default, making your sites incredibly fast.
+        </HighlightBox>
+
+        <HighlightBox type="warning" title="Deprecation Notice">
+          This feature is deprecated and will be removed in v2.0. Please migrate to the new API.
+        </HighlightBox>
+
+        <HighlightBox type="success" title="Congratulations!">
+          Your changes have been saved successfully. The updates will be live within 5 minutes.
+        </HighlightBox>
+
+        <HighlightBox type="tip" title="Pro Tip">
+          Use keyboard shortcuts for faster navigation. Press <code class="bg-muted px-1 rounded">Cmd+K</code> to open the command palette.
+        </HighlightBox>
+      </div>
+
+      <h3 class="text-lg font-medium mb-4 text-foreground">Without Title</h3>
+      <div class="space-y-4 mb-6">
+        <HighlightBox type="info">
+          This is a simple info box without a title.
+        </HighlightBox>
+
+        <HighlightBox type="warning">
+          Be careful when deleting items. This action cannot be undone.
+        </HighlightBox>
+      </div>
+
+      <details class="bg-muted/30 rounded-lg p-4">
+        <summary class="cursor-pointer font-medium text-foreground">Usage Code</summary>
+        <pre class="mt-4 bg-card p-4 rounded-lg overflow-x-auto text-sm"><code>{`<HighlightBox type="info" title="Did you know?">
+  Astro ships zero JavaScript by default.
+</HighlightBox>
+
+<!-- Types: info | warning | success | tip -->
+<!-- showIcon: boolean (default: true) -->`}</code></pre>
+      </details>
+    </section>
+
+    <!-- Import Guide -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-foreground">How to Use</h2>
+      <p class="text-muted-foreground mb-4">
+        Import any widget component in your Astro pages or components:
+      </p>
+
+      <pre class="bg-card p-4 rounded-lg overflow-x-auto text-sm mb-4"><code>{`---
+// In your .astro file
+import StatCard from "@/components/widgets/StatCard.astro";
+import ProfileCard from "@/components/widgets/ProfileCard.astro";
+import QuoteBox from "@/components/widgets/QuoteBox.astro";
+import ComparisonTable from "@/components/widgets/ComparisonTable.astro";
+import TimelineItem from "@/components/widgets/TimelineItem.astro";
+import HighlightBox from "@/components/widgets/HighlightBox.astro";
+---`}</code></pre>
+
+      <HighlightBox type="tip" title="MDX Support">
+        These components work great in MDX files too! Just import them at the top of your MDX file and use them directly in your content.
+      </HighlightBox>
+    </section>
+
+  </Main>
+  <Footer />
+</Layout>
+
+<style>
+  details summary {
+    list-style: none;
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary::before {
+    content: "+ ";
+    font-weight: bold;
+  }
+  details[open] summary::before {
+    content: "- ";
+  }
+</style>

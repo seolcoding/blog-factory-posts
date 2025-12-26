@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @import "./typography.css";
+@import "tw-animate-css";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* Original Theme Variables - Light Mode */
 :root,
 html[data-theme="light"] {
   --background: #fdfdfd;
@@ -10,14 +12,90 @@ html[data-theme="light"] {
   --accent: #006cac;
   --muted: #e6e6e6;
   --border: #ece9e9;
+
+  /* Extended palette for widgets */
+  --card: #ffffff;
+  --card-foreground: #282728;
+  --popover: #ffffff;
+  --popover-foreground: #282728;
+  --primary: #006cac;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #282728;
+  --muted-foreground: #71717a;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --input: #e4e4e7;
+  --ring: #006cac;
+  --radius: 0.5rem;
+
+  /* Widget-specific colors */
+  --info: #3b82f6;
+  --info-foreground: #ffffff;
+  --info-bg: #eff6ff;
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  --warning-bg: #fffbeb;
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+  --success-bg: #f0fdf4;
+  --tip: #8b5cf6;
+  --tip-foreground: #ffffff;
+  --tip-bg: #f5f3ff;
+
+  /* Chart colors */
+  --chart-1: #006cac;
+  --chart-2: #22c55e;
+  --chart-3: #f59e0b;
+  --chart-4: #8b5cf6;
+  --chart-5: #ec4899;
 }
 
+/* Original Theme Variables - Dark Mode */
 html[data-theme="dark"] {
   --background: #212737;
   --foreground: #eaedf3;
   --accent: #ff6b01;
   --muted: #343f60;
   --border: #ab4b08;
+
+  /* Extended palette for widgets */
+  --card: #2a3347;
+  --card-foreground: #eaedf3;
+  --popover: #2a3347;
+  --popover-foreground: #eaedf3;
+  --primary: #ff6b01;
+  --primary-foreground: #ffffff;
+  --secondary: #343f60;
+  --secondary-foreground: #eaedf3;
+  --muted-foreground: #a1a1aa;
+  --accent-foreground: #ffffff;
+  --destructive: #f87171;
+  --destructive-foreground: #ffffff;
+  --input: #3f4a6a;
+  --ring: #ff6b01;
+
+  /* Widget-specific colors */
+  --info: #60a5fa;
+  --info-foreground: #ffffff;
+  --info-bg: #1e3a5f;
+  --warning: #fbbf24;
+  --warning-foreground: #1f2937;
+  --warning-bg: #422006;
+  --success: #4ade80;
+  --success-foreground: #1f2937;
+  --success-bg: #14532d;
+  --tip: #a78bfa;
+  --tip-foreground: #ffffff;
+  --tip-bg: #3b2f63;
+
+  /* Chart colors */
+  --chart-1: #ff6b01;
+  --chart-2: #4ade80;
+  --chart-3: #fbbf24;
+  --chart-4: #a78bfa;
+  --chart-5: #f472b6;
 }
 
 @theme inline {
@@ -26,6 +104,48 @@ html[data-theme="dark"] {
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Widget colors */
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-bg: var(--info-bg);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-bg: var(--warning-bg);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-bg: var(--success-bg);
+  --color-tip: var(--tip);
+  --color-tip-foreground: var(--tip-foreground);
+  --color-tip-bg: var(--tip-bg);
+
+  /* Chart colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
 }
 
 @layer base {

@@ -1,0 +1,248 @@
+---
+/**
+ * SmartImage Component
+ *
+ * A smart image component that fetches images from multiple sources:
+ * - Wikipedia/Wikidata (for known entities)
+ * - Open Graph (for article thumbnails)
+ * - DuckDuckGo Image Search (for general images)
+ * - Pexels Stock Photos (for high-quality fallbacks)
+ *
+ * @example
+ * <SmartImage query="Elon Musk" />
+ * <SmartImage query="AI News" articleUrl="https://example.com/article" />
+ * <SmartImage query="technology" sources={['pexels', 'ddg']} />
+ */
+
+import {
+  fetchImage,
+  type ImageSource,
+  type UnifiedImage,
+} from "@/utils/unifiedImageFetcher";
+
+export interface Props {
+  /** Search query or entity name */
+  query: string;
+  /** Optional article URL for Open Graph parsing (tried first if provided) */
+  articleUrl?: string;
+  /** Which image sources to try, in order */
+  sources?: ImageSource[];
+  /** Preferred source to try first */
+  preferredSource?: ImageSource;
+  /** Image size preset */
+  size?: "small" | "medium" | "large";
+  /** Custom width in pixels (overrides size) */
+  width?: number;
+  /** Whether to show attribution below the image */
+  showAttribution?: boolean;
+  /** Fallback image URL if all sources fail */
+  fallbackSrc?: string;
+  /** Alt text override (defaults to query or fetched title) */
+  alt?: string;
+  /** Additional CSS classes for the container */
+  class?: string;
+  /** Whether to lazy load the image */
+  loading?: "lazy" | "eager";
+  /** Whether to link to full resolution image */
+  linkToFull?: boolean;
+  /** Whether to show rounded corners */
+  rounded?: boolean;
+  /** Caption text to display */
+  caption?: string;
+  /** Preferred language for Wikipedia lookup */
+  lang?: "en" | "ko";
+  /** Image orientation preference for stock photos */
+  orientation?: "landscape" | "portrait" | "square";
+}
+
+const {
+  query,
+  articleUrl,
+  sources = ["wikipedia", "ddg", "pexels"],
+  preferredSource,
+  size = "medium",
+  width: customWidth,
+  showAttribution = true,
+  fallbackSrc,
+  alt: customAlt,
+  class: className,
+  loading = "lazy",
+  linkToFull = true,
+  rounded = true,
+  caption,
+  lang = "en",
+  orientation,
+} = Astro.props;
+
+// Size presets in pixels
+const sizeMap: Record<string, number> = {
+  small: 200,
+  medium: 400,
+  large: 600,
+};
+
+const width = customWidth ?? sizeMap[size] ?? 400;
+
+// Fetch the image
+let image: UnifiedImage | null = null;
+let error: string | null = null;
+
+try {
+  image = await fetchImage(query, {
+    sources,
+    preferredSource,
+    articleUrl,
+    thumbSize: width,
+    preferredLanguage: lang,
+    safeSearch: true,
+    orientation,
+  });
+} catch (e) {
+  error = e instanceof Error ? e.message : "Failed to fetch image";
+}
+
+const hasImage = Boolean(image?.thumbnailUrl || image?.url);
+const imageUrl = hasImage
+  ? image!.thumbnailUrl || image!.url
+  : fallbackSrc;
+const fullUrl = image?.url;
+const altText = customAlt || image?.alt || image?.title || query;
+const attribution = image?.attribution || "";
+const sourceLabel = image?.source || "";
+
+// Container width class based on size
+const widthClass: Record<string, string> = {
+  small: "max-w-[200px]",
+  medium: "max-w-[400px]",
+  large: "max-w-[600px]",
+};
+
+// Source badge colors
+const sourceBadgeClass: Record<string, string> = {
+  wikipedia: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+  ddg: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+  og: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+  pexels: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+};
+---
+
+<figure
+  class:list={[
+    "smart-image-container",
+    widthClass[size] ?? "max-w-[400px]",
+    className,
+  ]}
+>
+  {
+    imageUrl ? (
+      <>
+        {linkToFull && fullUrl && fullUrl !== imageUrl ? (
+          <a
+            href={fullUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`View full image: ${altText}`}
+            class="smart-image-link block"
+          >
+            <img
+              src={imageUrl}
+              alt={altText}
+              loading={loading}
+              class:list={[
+                "smart-image w-full h-auto",
+                rounded && "rounded-lg",
+              ]}
+              width={width}
+              decoding="async"
+            />
+          </a>
+        ) : (
+          <img
+            src={imageUrl}
+            alt={altText}
+            loading={loading}
+            class:list={[
+              "smart-image w-full h-auto",
+              rounded && "rounded-lg",
+            ]}
+            width={width}
+            decoding="async"
+          />
+        )}
+
+        {(caption || showAttribution) && (
+          <figcaption class="smart-image-caption mt-2 text-sm text-gray-600 dark:text-gray-400">
+            {caption && (
+              <p class="smart-image-caption-text mb-1">{caption}</p>
+            )}
+            {showAttribution && image && (
+              <div class="flex items-center gap-2 text-xs opacity-75">
+                {sourceLabel && (
+                  <span
+                    class:list={[
+                      "smart-image-source px-1.5 py-0.5 rounded text-[10px] font-medium uppercase",
+                      sourceBadgeClass[sourceLabel] ||
+                        "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200",
+                    ]}
+                  >
+                    {sourceLabel}
+                  </span>
+                )}
+                <span class="smart-image-attribution">{attribution}</span>
+              </div>
+            )}
+          </figcaption>
+        )}
+      </>
+    ) : (
+      <div
+        class:list={[
+          "smart-image-placeholder flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600",
+          rounded && "rounded-lg",
+        ]}
+        style={`width: ${width}px; height: ${Math.round(width * 0.75)}px;`}
+        role="img"
+        aria-label={`No image available for ${query}`}
+      >
+        <div class="text-center p-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-12 w-12 mx-auto mb-2 opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <span class="text-xs block">
+            {error ?? `No image for "${query}"`}
+          </span>
+        </div>
+      </div>
+    )
+  }
+</figure>
+
+<style>
+  .smart-image-container {
+    display: inline-block;
+  }
+
+  .smart-image-link:hover .smart-image {
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+  }
+
+  .smart-image-attribution {
+    word-break: break-word;
+  }
+
+  .smart-image-source {
+    flex-shrink: 0;
+  }
+</style>
