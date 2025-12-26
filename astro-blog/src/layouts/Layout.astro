@@ -150,13 +150,17 @@ const structuredData = {
 
       // Convert markdown code blocks to mermaid diagrams
       function renderMermaidDiagrams() {
-        const codeBlocks = document.querySelectorAll('pre > code.language-mermaid');
-        codeBlocks.forEach((codeBlock, index) => {
-          const pre = codeBlock.parentElement;
-          const mermaidDiv = document.createElement('div');
-          mermaidDiv.className = 'mermaid';
-          mermaidDiv.textContent = codeBlock.textContent;
-          pre.parentNode.replaceChild(mermaidDiv, pre);
+        // Astro Shiki uses data-language attribute, not class
+        const codeBlocks = document.querySelectorAll('pre[data-language="mermaid"]');
+        codeBlocks.forEach((pre) => {
+          const code = pre.querySelector('code');
+          if (code) {
+            const mermaidDiv = document.createElement('div');
+            mermaidDiv.className = 'mermaid';
+            // Get text content without the span styling
+            mermaidDiv.textContent = code.textContent;
+            pre.parentNode.replaceChild(mermaidDiv, pre);
+          }
         });
 
         // Run mermaid after conversion
