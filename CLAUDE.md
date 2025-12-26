@@ -421,25 +421,309 @@ git log --oneline -10
 
 ---
 
+## 📝 BlogScript - JSON 기반 콘텐츠 생성 아키텍처
+
+### 개요
+
+**BlogScript**는 MulmoScript에서 영감을 받은 JSON 기반 블로그 콘텐츠 스키마입니다.
+
+> **핵심 아이디어**: LLM은 **창의적인 JSON 생성**에 집중하고, 엔진은 **결정론적인 MDX 렌더링**을 담당
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    LLM (Creative)                       │
+│              Claude Sonnet 4 / Opus 4                   │
+│                                                         │
+│  Input: Topic + Research Data                          │
+│  Output: BlogScript JSON                               │
+│                                                         │
+│  {                                                      │
+│    "$blogscript": { "version": "1.0" },                │
+│    "meta": { ... },                                    │
+│    "beats": [                                          │
+│      { "type": "heading", "text": "..." },            │
+│      { "type": "stat-grid", "stats": [...] },         │
+│      { "type": "image", "source": {...} }             │
+│    ]                                                   │
+│  }                                                     │
+└─────────────────────────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────┐
+│              Renderer Engine (Deterministic)            │
+│                  Pure TypeScript                        │
+│                                                         │
+│  renderBlogScript(json) → MDX                          │
+│                                                         │
+│  ---                                                   │
+│  title: "..."                                          │
+│  ---                                                   │
+│                                                         │
+│  import StatCard from "@/components/widgets/..."       │
+│                                                         │
+│  ## Heading                                            │
+│  <StatGrid .../>                                       │
+│  <SmartImage .../>                                     │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 핵심 개념: Beats
+
+**Beat**는 콘텐츠의 최소 단위입니다. 각 beat는 독립적인 콘텐츠 블록으로:
+
+| Beat 유형 | 설명 | 예시 |
+|----------|------|------|
+| **text** | 일반 텍스트/마크다운 | 문단, 리스트, 강조 |
+| **heading** | 제목 (h2, h3, h4) | 섹션 구분 |
+| **image** | 이미지 (다양한 소스) | Wikipedia, DDG, URL |
+| **stat-grid** | 통계 그리드 | 시장 규모, 성장률 |
+| **table** | 비교 테이블 | 제품/서비스 비교 |
+| **timeline** | 타임라인 | 개발 로드맵, 역사 |
+| **profile** | 프로필 카드 | 인물 소개 |
+| **quote** | 인용구 | 전문가 의견 |
+| **callout** | 강조 박스 | 팁, 경고, 정보 |
+| **divider** | 구분선 | 섹션 구분 |
+| **spacer** | 여백 | 레이아웃 조정 |
+
+### 스키마 구조
+
+```typescript
+// astro-blog/src/types/blogScript.ts
+
+export const blogScriptSchema = z.object({
+  $blogscript: z.object({ version: z.literal("1.0") }),
+
+  meta: z.object({
+    title: z.string().min(1),
+    description: z.string().min(1).max(160),
+    pubDatetime: z.string(),
+    tags: z.array(z.string()).min(1).max(10),
+    author: z.string().default("Blog Factory"),
+    draft: z.boolean().default(false),
+  }),
+
+  hero: imageBeatSchema.optional(),
+  beats: z.array(beatSchema).min(1),
+  references: z.array(referenceSchema).optional(),
+});
+```
+
+### 이미지 소스 우선순위
+
+SmartImage 컴포넌트는 다음 순서로 이미지를 검색합니다:
+
+1. **URL**: 직접 이미지 URL 제공
+2. **Wikipedia/Wikidata**: 엔티티 이름으로 검색 (실제 이미지)
+3. **DuckDuckGo**: 검색어로 이미지 검색 (실제 이미지)
+4. **Pexels/Unsplash**: 고품질 스톡 이미지 (fallback)
+
+```json
+// BlogScript JSON 예시
+{
+  "type": "image",
+  "source": {
+    "kind": "wikipedia",
+    "entity": "Claude (language model)",
+    "lang": "en"
+  },
+  "size": "hero",
+  "caption": "Anthropic의 Claude - 긴 컨텍스트와 추론 능력이 강점"
+}
+```
+
+### 렌더러 엔진
+
+```typescript
+// astro-blog/src/utils/blogScriptRenderer.ts
+
+export function renderBlogScript(script: BlogScript): string {
+  const lines: string[] = [];
+
+  // 1. Frontmatter
+  lines.push("---");
+  lines.push(`title: "${script.meta.title}"`);
+  lines.push(`pubDatetime: ${script.meta.pubDatetime}`);
+  lines.push("---");
+
+  // 2. Imports (필요한 컴포넌트만 자동 추출)
+  lines.push(`import StatCard from "@/components/widgets/StatCard.astro";`);
+  lines.push(`import SmartImage from "@/components/widgets/SmartImage.astro";`);
+
+  // 3. Hero Image
+  if (script.hero) {
+    lines.push(renderImage(script.hero));
+  }
+
+  // 4. Beats (순차적 렌더링)
+  for (const beat of script.beats) {
+    lines.push(renderBeat(beat));
+  }
+
+  // 5. References
+  if (script.references) {
+    lines.push("## 참고 자료");
+    for (const ref of script.references) {
+      lines.push(`- [${ref.title}](${ref.url})`);
+    }
+  }
+
+  return lines.join("\n");
+}
+```
+
+### 테스트 결과
+
+**test-blogscript-pipeline.mjs** 실행 결과:
+
+```
+✅ Schema validation: PASSED
+✅ Rendering: PASSED
+✅ Quality score: 100.0%
+
+📊 Metrics:
+  JSON size: 4,202 bytes
+  MDX size: 4,187 bytes
+  Compression ratio: 1.00x
+  Beat count: 22
+  Components: 16
+
+🎯 SEO:
+  Title: 39 chars ✅
+  Description: 74 chars ✅
+  Tags: 5 ✅
+```
+
+### 파일 구조
+
+```
+astro-blog/
+├── src/
+│   ├── types/
+│   │   └── blogScript.ts          # Zod 스키마 정의
+│   ├── utils/
+│   │   └── blogScriptRenderer.ts  # JSON → MDX 변환
+│   ├── components/widgets/
+│   │   ├── SmartImage.astro       # 멀티소스 이미지
+│   │   ├── StatCard.astro         # 통계 카드
+│   │   ├── ComparisonTable.astro  # 비교 테이블
+│   │   ├── TimelineItem.astro     # 타임라인
+│   │   ├── ProfileCard.astro      # 프로필
+│   │   ├── QuoteBox.astro         # 인용구
+│   │   └── HighlightBox.astro     # 강조 박스
+│   └── data/blog/                 # 생성된 MDX 파일
+│
+├── test-blogscript.json           # 예제 BlogScript
+└── test-blogscript-pipeline.mjs   # 테스트 스크립트
+```
+
+### 장점
+
+| 장점 | 설명 |
+|-----|-----|
+| **품질 일관성** | 모든 포스트가 동일한 품질 기준 (SEO, 구조, 스타일) |
+| **타입 안전성** | Zod 스키마로 런타임 검증, TypeScript 타입 추론 |
+| **테스트 가능** | JSON 검증, 렌더링 출력, 메트릭 자동 측정 |
+| **확장 가능** | 새로운 beat 타입 추가 시 렌더러만 수정 |
+| **LLM 최적화** | JSON 생성에 집중, MDX 문법 오류 제로 |
+| **버전 관리** | JSON diff로 변경사항 명확히 추적 |
+
+### 자동화 파이프라인 (예정)
+
+```
+/blog [topic]
+  ↓
+1. Research (MCP)
+   - Naver DataLab 트렌드
+   - Google News
+   - 경쟁 콘텐츠 분석
+  ↓
+2. Generate (LLM)
+   - Claude Sonnet 4
+   - BlogScript JSON 생성
+   - 스키마 검증
+  ↓
+3. Render (Engine)
+   - renderBlogScript()
+   - MDX 파일 생성
+   - 품질 검사 (100점 목표)
+  ↓
+4. Publish (Git)
+   - Git add + commit
+   - GitHub Pages 배포
+   - 텔레그램 알림
+```
+
+### 예제: AI 코딩 에이전트 포스트
+
+완전한 예제는 `test-blogscript.json` 참고:
+
+```json
+{
+  "$blogscript": { "version": "1.0" },
+  "meta": {
+    "title": "2025 AI 에이전트 혁명: Claude Code와 자율 코딩의 미래",
+    "description": "Claude Code, GitHub Copilot, Cursor를 비교 분석...",
+    "tags": ["AI", "에이전트", "Claude", "개발도구", "자동화"]
+  },
+  "beats": [
+    {
+      "type": "stat-grid",
+      "columns": "3",
+      "stats": [
+        { "label": "시장 규모", "value": "$2.3B", "trend": "up" },
+        { "label": "개발자 도입률", "value": "73%", "trend": "up" },
+        { "label": "생산성 향상", "value": "+55%", "trend": "up" }
+      ]
+    },
+    {
+      "type": "table",
+      "headers": ["도구", "개발사", "핵심 기능", "가격"],
+      "rows": [
+        ["Claude Code", "Anthropic", "자율 에이전트", "무료/$20"],
+        ["GitHub Copilot", "Microsoft", "자동완성", "$10/$20"]
+      ]
+    }
+  ]
+}
+```
+
+→ 렌더링 결과: https://seolcoding.github.io/blog-factory-posts/posts/test-ai-coding-agents-2025/
+
+### 참고 자료
+
+| 리소스 | 설명 | URL |
+|-------|------|-----|
+| **MulmoScript** | 영감을 준 비디오 스크립트 JSON 스키마 | [receptron/mulmocast-cli](https://github.com/receptron/mulmocast-cli) |
+| **Zod** | TypeScript 스키마 검증 라이브러리 | [zod.dev](https://zod.dev) |
+| **Astro MDX** | MDX 지원 정적 사이트 생성기 | [docs.astro.build/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) |
+
+---
+
 ## 🎯 로드맵
 
 ### Phase 1: MVP ✅
 - [x] 아키텍처 설계
+- [x] BlogScript JSON 스키마 & 렌더러
+- [x] Rich Widget 컴포넌트 (StatCard, Table, Timeline, etc.)
+- [x] SmartImage (멀티소스 이미지)
+- [x] GitHub Pages 발행
+- [x] 테스트 파이프라인 (100% 품질 점수)
 - [ ] 기본 에이전트 루프
 - [ ] 텔레그램 연동
-- [ ] GitHub Pages 발행
 
 ### Phase 2: 확장
-- [ ] SNS 멀티플랫폼
-- [ ] 이미지 자동 생성
-- [ ] 성과 대시보드
+- [ ] Claude Code Skill (/blog 자동화)
+- [ ] MCP 서버 통합 (Naver, Google Trends)
+- [ ] SNS 멀티플랫폼 (X, Threads)
+- [ ] 성과 분석 대시보드
 
 ### Phase 3: 고도화
 - [ ] A/B 테스트 자동화
+- [ ] 바이럴 패턴 학습
 - [ ] 광고 수익 연동
 - [ ] 다국어 지원
 
 ---
 
-*Last Updated: 2025-12-25*
-*Version: 1.0.0*
+*Last Updated: 2025-12-26*
+*Version: 1.1.0 - BlogScript 아키텍처 추가*
