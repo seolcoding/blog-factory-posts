@@ -149,9 +149,12 @@ const structuredData = {
       });
 
       // Convert markdown code blocks to mermaid diagrams
-      function renderMermaidDiagrams() {
+      async function renderMermaidDiagrams() {
         // Astro Shiki uses data-language attribute, not class
         const codeBlocks = document.querySelectorAll('pre[data-language="mermaid"]');
+
+        if (codeBlocks.length === 0) return;
+
         codeBlocks.forEach((pre) => {
           const code = pre.querySelector('code');
           if (code) {
@@ -164,18 +167,22 @@ const structuredData = {
         });
 
         // Run mermaid after conversion
-        if (document.querySelectorAll('.mermaid').length > 0) {
-          mermaid.run();
+        try {
+          await mermaid.run({ querySelector: '.mermaid' });
+        } catch (e) {
+          console.error('Mermaid render error:', e);
         }
       }
 
-      // Run on initial load
-      renderMermaidDiagrams();
+      // Run after DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderMermaidDiagrams);
+      } else {
+        renderMermaidDiagrams();
+      }
 
       // Re-render on page navigation (for Astro transitions)
-      document.addEventListener('astro:page-load', () => {
-        renderMermaidDiagrams();
-      });
+      document.addEventListener('astro:page-load', renderMermaidDiagrams);
     </script>
   </body>
 </html>
