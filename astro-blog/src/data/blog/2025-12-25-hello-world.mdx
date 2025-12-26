@@ -1,0 +1,59 @@
+---
+title: "Blog Factory 시작"
+pubDatetime: 2025-12-25T23:00:00+09:00
+draft: false
+tags: [AI, automation, blog]
+description: "AI 기반 자동 콘텐츠 생성 시스템 Blog Factory를 소개합니다."
+---
+
+import StatCard from "@/components/widgets/StatCard.astro";
+import HighlightBox from "@/components/widgets/HighlightBox.astro";
+import ComparisonTable from "@/components/widgets/ComparisonTable.astro";
+
+## Blog Factory란?
+
+Blog Factory는 AI를 활용한 **자동 콘텐츠 생성 시스템**입니다.
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <StatCard
+    label="트렌드 분석"
+    value="실시간"
+    description="Google, Naver, DeepNews"
+  />
+  <StatCard
+    label="SEO 최적화"
+    value="자동"
+    description="메타데이터 생성"
+  />
+  <StatCard
+    label="배포"
+    value="GitHub"
+    description="자동 배포"
+  />
+</div>
+
+### 주요 기능
+
+<HighlightBox type="success" title="핵심 기능">
+
+- **실시간 트렌드 분석**: Google Trends, Naver, DeepNews 연동
+- **SEO 최적화된 콘텐츠**: 자동 메타데이터 및 구조화된 콘텐츠 생성
+- **GitHub Pages 자동 배포**: 원클릭 발행 시스템
+
+</HighlightBox>
+
+### 기술 스택
+
+<ComparisonTable
+  title="Blog Factory 기술 스택"
+  headers={["영역", "기술", "역할"]}
+  rows={[
+    ["MCP Servers", "trendkit, deepnews, naver-search", "데이터 수집"],
+    ["Blog Framework", "Astro + AstroPaper", "콘텐츠 발행"],
+    ["Deployment", "GitHub Pages", "자동 배포"]
+  ]}
+/>
+
+---
+
+앞으로 다양한 트렌딩 콘텐츠를 만나보세요!

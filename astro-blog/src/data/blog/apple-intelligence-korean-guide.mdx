@@ -1,0 +1,434 @@
+---
+title: "Apple Intelligence 한국어 완벽 가이드: iOS 18.4에서 사용하는 방법"
+description: "2025년 4월 드디어 한국어 지원! Apple Intelligence의 모든 기능과 지원 기기, 설정 방법, 그리고 아직 사용할 수 없는 기능까지 완벽 정리."
+pubDatetime: 2025-12-26T07:00:00Z
+tags:
+  - apple
+  - apple-intelligence
+  - ios
+  - siri
+  - ai
+featured: false
+draft: false
+---
+
+import StatCard from "@/components/widgets/StatCard.astro";
+import ComparisonTable from "@/components/widgets/ComparisonTable.astro";
+import HighlightBox from "@/components/widgets/HighlightBox.astro";
+import QuoteBox from "@/components/widgets/QuoteBox.astro";
+import TimelineItem from "@/components/widgets/TimelineItem.astro";
+
+2025년 4월 1일, Apple Intelligence가 드디어 **한국어를 지원**하기 시작했습니다. iOS 18.4, iPadOS 18.4, macOS Sequoia 15.4에서 사용할 수 있는 모든 기능을 알아보겠습니다.
+
+![Apple Intelligence](https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800)
+*출처: [Unsplash - Apple 기기 이미지](https://unsplash.com)*
+
+## 목차
+
+## Apple Intelligence란?
+
+Apple Intelligence는 Apple의 **개인 맞춤형 AI** 시스템으로, iOS 18, iPadOS 18, macOS Sequoia에 통합되어 있습니다.
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 2rem 0;">
+  <HighlightBox
+    type="info"
+    title="개인화"
+  >
+  사용자 맥락 이해
+  </HighlightBox>
+
+  <HighlightBox
+    type="success"
+    title="프라이버시"
+  >
+  온디바이스 처리 우선
+  </HighlightBox>
+
+  <HighlightBox
+    type="warning"
+    title="통합"
+  >
+  Apple 생태계 전반 연동
+  </HighlightBox>
+</div>
+
+---
+
+## 지원 기기
+
+### iPhone
+
+<ComparisonTable
+  title="iPhone 지원 여부"
+  leftTitle="모델"
+  rightTitle="지원"
+  items={[
+    {
+      label: "iPhone 16 전 모델",
+      left: "최신 모델",
+      right: "✅ 지원"
+    },
+    {
+      label: "iPhone 15 Pro",
+      left: "Pro 모델",
+      right: "✅ 지원"
+    },
+    {
+      label: "iPhone 15 Pro Max",
+      left: "Pro Max",
+      right: "✅ 지원"
+    },
+    {
+      label: "iPhone 15/15 Plus",
+      left: "일반 모델",
+      right: "❌ 미지원"
+    },
+    {
+      label: "이전 모델",
+      left: "iPhone 14 이하",
+      right: "❌ 미지원"
+    }
+  ]}
+/>
+
+### iPad & Mac
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 2rem 0;">
+  <HighlightBox
+    type="success"
+    title="iPad 지원"
+  >
+  ✅ iPad mini (A17 Pro)
+  ✅ M1 이상 iPad
+  ❌ 이전 모델
+  </HighlightBox>
+
+  <HighlightBox
+    type="success"
+    title="Mac 지원"
+  >
+  ✅ M1 이상 Mac
+  ❌ Intel Mac
+  </HighlightBox>
+</div>
+
+---
+
+## 한국어 지원 타임라인
+
+<div style="margin: 2rem 0;">
+  <TimelineItem
+    date="2024년 10월 29일"
+    title="미국 영어 최초 지원"
+    description="Apple Intelligence 첫 출시"
+  />
+  <TimelineItem
+    date="2024년 12월"
+    title="영어권 국가 확대"
+    description="영어 사용 지역 확장"
+  />
+  <TimelineItem
+    date="2025년 4월 1일"
+    title="한국어 지원 시작! 🇰🇷"
+    description="iOS/iPadOS 18.4, macOS 15.4"
+    highlight={true}
+  />
+</div>
+
+---
+
+## 주요 기능
+
+### 1. Writing Tools (글쓰기 도구)
+
+<ComparisonTable
+  title="글쓰기 도구 기능"
+  leftTitle="기능"
+  rightTitle="설명"
+  items={[
+    {
+      label: "다시 쓰기",
+      left: "스타일 변환",
+      right: "다른 톤/스타일로 변환"
+    },
+    {
+      label: "교정",
+      left: "문법 검사",
+      right: "맞춤법, 문법 검사"
+    },
+    {
+      label: "요약",
+      left: "압축",
+      right: "긴 텍스트 압축"
+    }
+  ]}
+/>
+
+<HighlightBox
+  type="info"
+  title="사용 방법"
+>
+1. 텍스트 선택
+2. 팝업 메뉴에서 "Writing Tools" 선택
+3. 원하는 기능 클릭
+</HighlightBox>
+
+### 2. Smart Reply (스마트 답장)
+
+<QuoteBox
+  quote="메시지와 메일에서 한 번의 탭으로 적절한 답장을 보낼 수 있습니다."
+  author="스마트 답장 기능"
+/>
+
+```
+받은 메시지: "내일 회의 참석 가능하신가요?"
+
+스마트 답장 제안:
+├── "네, 참석 가능합니다."
+├── "시간을 조율해야 할 것 같습니다."
+└── "죄송합니다, 다른 일정이 있습니다."
+```
+
+### 3. 알림 요약
+
+<ComparisonTable
+  title="알림 요약 예시"
+  leftTitle="Before (기존)"
+  rightTitle="After (AI 요약)"
+  items={[
+    {
+      label: "표시 방식",
+      left: "알림 1-4: 개별 표시",
+      right: "📱 카카오톡 - 김철수 (4)"
+    },
+    {
+      label: "내용",
+      left: "각각의 메시지 전문",
+      right: "점심 식사와 산책 제안"
+    }
+  ]}
+/>
+
+### 4. Mail 정리
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 2rem 0;">
+  <StatCard
+    title="우선순위 정렬"
+    value="자동"
+    subtitle="중요 메일 상단"
+    trend="neutral"
+  />
+  <StatCard
+    title="요약"
+    value="AI"
+    subtitle="긴 이메일 핵심"
+    trend="neutral"
+  />
+  <StatCard
+    title="빠른 답장"
+    value="제안"
+    subtitle="스마트 답장"
+    trend="neutral"
+  />
+</div>
+
+### 5. 사진 앱 기능
+
+<HighlightBox
+  type="success"
+  title="사진 AI 기능"
+>
+- **Clean Up**: 사진에서 불필요한 객체 제거
+- **자연어 검색**: "제주도에서 찍은 바다 사진"
+- **메모리**: AI 기반 추억 영상 생성
+</HighlightBox>
+
+---
+
+## 아직 지원되지 않는 기능
+
+### 2026년으로 연기된 기능
+
+<ComparisonTable
+  title="미지원 기능"
+  leftTitle="기능"
+  rightTitle="예상 시기"
+  items={[
+    {
+      label: "화면 인식 Siri",
+      left: "고급 기능",
+      right: "2026년"
+    },
+    {
+      label: "앱 내 액션",
+      left: "앱 제어",
+      right: "2026년"
+    },
+    {
+      label: "ChatGPT 통합",
+      left: "외부 AI",
+      right: "일부 제한, 미정"
+    }
+  ]}
+/>
+
+---
+
+## 설정 방법
+
+<HighlightBox
+  type="info"
+  title="iPhone에서 Apple Intelligence 활성화"
+>
+```
+1. 설정 앱 열기
+2. "Apple Intelligence 및 Siri" 탭
+3. "Apple Intelligence" 토글 활성화
+4. 언어를 "한국어"로 설정
+```
+</HighlightBox>
+
+<HighlightBox
+  type="warning"
+  title="언어 설정 확인"
+>
+Apple Intelligence를 사용하려면 **Siri와 기기 언어가 모두 한국어**로 설정되어 있어야 합니다.
+
+```
+설정 → 일반 → 언어 및 지역
+├── iPhone 언어: 한국어
+└── Siri 언어: 한국어 (대한민국)
+```
+</HighlightBox>
+
+---
+
+## 프라이버시 보장
+
+<ComparisonTable
+  title="온디바이스 vs 클라우드"
+  leftTitle="온디바이스 처리"
+  rightTitle="Private Cloud Compute"
+  items={[
+    {
+      label: "데이터 처리",
+      left: "기기 내 처리",
+      right: "필요시 암호화 클라우드"
+    },
+    {
+      label: "외부 전송",
+      left: "없음",
+      right: "암호화 전송"
+    },
+    {
+      label: "예시",
+      left: "알림 요약, 글쓰기 도구",
+      right: "복잡한 요청"
+    }
+  ]}
+/>
+
+<QuoteBox
+  quote="Apple은 사용자 데이터를 서버에 저장하지 않으며, 암호화된 전송을 보장합니다."
+  author="Apple 프라이버시 정책"
+/>
+
+---
+
+## 경쟁 AI와 비교
+
+<ComparisonTable
+  title="AI 플랫폼 비교"
+  leftTitle="항목"
+  rightTitle="평가"
+  items={[
+    {
+      label: "온디바이스",
+      left: "Apple ⭐⭐⭐⭐⭐",
+      right: "Google ⭐⭐⭐ / Samsung ⭐⭐⭐⭐"
+    },
+    {
+      label: "프라이버시",
+      left: "Apple ⭐⭐⭐⭐⭐",
+      right: "Google ⭐⭐⭐ / Samsung ⭐⭐⭐⭐"
+    },
+    {
+      label: "기능 범위",
+      left: "Apple ⭐⭐⭐",
+      right: "Google ⭐⭐⭐⭐⭐ / Samsung ⭐⭐⭐⭐"
+    },
+    {
+      label: "한국어",
+      left: "Apple ⭐⭐⭐⭐",
+      right: "Google ⭐⭐⭐⭐⭐ / Samsung ⭐⭐⭐⭐⭐"
+    }
+  ]}
+/>
+
+---
+
+## 자주 묻는 질문
+
+<HighlightBox
+  type="warning"
+  title="Q: iPhone 14에서 사용 가능?"
+>
+**A**: 아니요. **iPhone 15 Pro 이상** 또는 **iPhone 16 전 모델**에서만 지원됩니다.
+</HighlightBox>
+
+<HighlightBox
+  type="success"
+  title="Q: 인터넷 없이 사용 가능?"
+>
+**A**: 네, 대부분의 기능은 **온디바이스**로 작동합니다. 단, 일부 복잡한 요청은 인터넷이 필요합니다.
+</HighlightBox>
+
+<HighlightBox
+  type="info"
+  title="Q: 한국어 Siri가 ChatGPT처럼 대화 가능?"
+>
+**A**: 현재는 제한적입니다. 고급 대화 기능은 2026년 이후 출시 예정입니다.
+</HighlightBox>
+
+<HighlightBox
+  type="success"
+  title="Q: 무료인가요?"
+>
+**A**: 네, **Apple 기기 구매자에게 무료**로 제공됩니다.
+</HighlightBox>
+
+---
+
+## 결론: Apple Intelligence의 현재와 미래
+
+2025년 4월 한국어 지원은 시작에 불과합니다:
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 2rem 0;">
+  <HighlightBox
+    type="success"
+    title="✅ 현재 가능"
+  >
+  - Writing Tools
+  - Smart Reply
+  - 알림 요약
+  - 사진 Clean Up
+  </HighlightBox>
+
+  <HighlightBox
+    type="warning"
+    title="⏳ 곧 출시 예정"
+  >
+  - 화면 인식 Siri
+  - 앱 내 액션
+  - 더 강력한 ChatGPT 통합
+  </HighlightBox>
+</div>
+
+<QuoteBox
+  quote="Apple Intelligence는 '조용하지만 강력한' Apple 특유의 접근 방식으로 발전하고 있습니다. 프라이버시를 희생하지 않으면서 일상의 편의를 높여주는 것이 핵심 가치입니다."
+  author="Apple Intelligence 2025"
+/>
+
+---
+
+*Apple Intelligence 사용 중 궁금한 점이 있다면 댓글로 남겨주세요!*
