@@ -15,6 +15,9 @@ draft: false
 
 2025년, AI 코딩 도구는 더 이상 자동완성 수준에 머물지 않습니다. **AI 코딩 에이전트**는 계획, 작성, 디버깅, 배포까지 전체 개발 과정을 자동화합니다.
 
+![AI 코딩 에이전트 비교 2025](https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800)
+*출처: [Unsplash - AI 코딩 이미지](https://unsplash.com)*
+
 ## 목차
 
 ## AI 코딩 에이전트란?
@@ -23,14 +26,14 @@ AI 코딩 에이전트는 단순 코드 추천을 넘어 **자율적으로 개�
 
 ### 진화 과정
 
-```
-자동완성 (2020년대 초)
-↓
-코드 생성 (2023년)
-↓
-페어 프로그래밍 (2024년)
-↓
-자율 에이전트 (2025년) ← 현재
+```mermaid
+flowchart TD
+    A[자동완성<br/>2020년대 초] --> B[코드 생성<br/>2023년]
+    B --> C[페어 프로그래밍<br/>2024년]
+    C --> D[자율 에이전트<br/>2025년]
+    D --> E{현재 위치}
+    style D fill:#f96
+    style E fill:#6f6
 ```
 
 ## 에이전트 유형 분류
@@ -165,13 +168,16 @@ AI 코딩 에이전트는 단순 코드 추천을 넘어 **자율적으로 개�
 
 Google 트렌드 기준 국내 사용량:
 
+```mermaid
+xychart-beta
+    title "AI 코딩 도구 국내 트렌드 (2025)"
+    x-axis ["Cursor", "Claude Code", "Codex", "Copilot", "Cline"]
+    y-axis "상대적 관심도" 0 --> 100
+    bar [100, 80, 60, 50, 20]
 ```
-Cursor       ████████████████████ 1위
-Claude Code  ████████████████     2위
-Codex        ████████████         3위
-Copilot      ██████████           4위
-Cline        ████                 5위
-```
+
+![AI 코딩 도구를 쓰는 개발자들](https://i.kym-cdn.com/entries/icons/original/000/021/807/ig9OoyenpxqdCQyABmOQBZDI0duHk2QZZmWg2Hxd4ro.jpg)
+*"코딩 AI 없이 어떻게 코딩했었지?"*
 
 ## 환경 관리 방식 비교
 
@@ -250,6 +256,21 @@ Cline        ████                 5위
 | **비용 효율** | Claude Code API |
 
 2025년은 AI 코딩 에이전트가 **옵션**에서 **필수**로 바뀌는 해입니다. 아직 경험해보지 않았다면, 지금 시작해보세요!
+
+```mermaid
+flowchart LR
+    A{당신의 선택은?} --> B[GUI 선호]
+    A --> C[CLI 선호]
+    A --> D[자율성 최우선]
+    A --> E[안정성 최우선]
+    B --> F[Cursor]
+    C --> G[Claude Code]
+    D --> H[Devin]
+    E --> I[GitHub Copilot]
+```
+
+![AI 에이전트 시대의 개발자](https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg)
+*"AI 덕분에 일이 줄었다고? 리뷰하고 수정하느라 더 바빠졌어..."*
 
 ---
 

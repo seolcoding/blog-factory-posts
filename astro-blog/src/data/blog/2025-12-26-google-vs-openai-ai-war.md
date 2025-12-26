@@ -35,15 +35,19 @@ ogImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200"
 
 ### 2025년 1월 상황
 
+```mermaid
+flowchart LR
+    subgraph 2025년1월["📊 2025년 1월 AI 순위"]
+        A["🥇 1위: GPT-5"]
+        B["🥈 2위: Claude 4"]
+        C["🥉 3위: Gemini 2.0"]
+    end
+    style A fill:#FFD700
+    style B fill:#C0C0C0
+    style C fill:#CD7F32
 ```
-📊 2025년 1월 AI 모델 순위
 
-1위: GPT-5 (OpenAI) 👑
-2위: Claude 4 (Anthropic)
-3위: Gemini 2.0 (Google)
-
-"구글? 아직 멀었지..."
-```
+> "구글? 아직 멀었지..."
 
 ### 구글의 위기
 

@@ -38,19 +38,20 @@ ogImage: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=1200"
 
 2025년 초, TikTok을 뒤흔든 **Italian Brainrot** 밈!
 
+```mermaid
+flowchart LR
+    subgraph IB["🇮🇹 ITALIAN BRAINROT 101"]
+        A[✈️ 비행기 + 🐊 악어] --> B[Bombardiro Crocodilo]
+        C[🦈 상어 + 👟 신발] --> D[Tralalero Tralala]
+        E[🌵 선인장 + 🐘 코끼리] --> F[Lirili Larila]
+    end
+    style IB fill:#e8f5e9
+    style B fill:#ffcdd2
+    style D fill:#bbdefb
+    style F fill:#fff9c4
 ```
-┌─────────────────────────────────────────────┐
-│        🇮🇹 ITALIAN BRAINROT 101 🇮🇹          │
-├─────────────────────────────────────────────┤
-│                                             │
-│  ✈️ + 🐊 = Bombardiro Crocodilo              │
-│  🦈 + 👟 = Tralalero Tralala                 │
-│  🌵 + 🐘 = Lirili Larila                     │
-│                                             │
-│  "이탈리아어 같은 이름 + AI 괴물 = 바이럴"   │
-│                                             │
-└─────────────────────────────────────────────┘
-```
+
+> "이탈리아어 같은 이름 + AI 괴물 = 바이럴"
 
 *출처: [Wikipedia - Italian Brainrot](https://en.wikipedia.org/wiki/Italian_brainrot)*
 
@@ -68,18 +69,14 @@ ogImage: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=1200"
 
 ### 타임라인
 
-```
-📅 2025년 Italian Brainrot 연대기
-
-1월: Tralalero Tralala (Nike 신발 신은 상어) 등장
-         ↓
-2월 20일: Bombardiro Crocodilo 최초 업로드
-         ↓
-3월: 바이럴 폭발 (조회수 500만+)
-         ↓
-4월: Panini 스티커 앨범 출시 (실화)
-         ↓
-5월: 헝가리 총리 오르반이 정부 회의에서 사용 (????)
+```mermaid
+timeline
+    title 2025년 Italian Brainrot 연대기
+    1월 : Tralalero Tralala 등장 (Nike 상어)
+    2월 20일 : Bombardiro Crocodilo 최초 업로드
+    3월 : 바이럴 폭발 💥 (조회수 500만+)
+    4월 : Panini 스티커 앨범 출시 (실화!)
+    5월 : 헝가리 총리 정부 회의에서 사용 😱
 ```
 
 *출처: [Know Your Meme](https://knowyourmeme.com/memes/italian-brainrot-ai-italian-animals)*
@@ -144,19 +141,23 @@ ogImage: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=1200"
 
 ### 2025년 가장 뜨거웠던 논쟁
 
+```mermaid
+flowchart TD
+    Q["🥊 THE ULTIMATE DEBATE"]
+    A["👥 100명의 일반인"]
+    B["🦍 1마리의 고릴라"]
+    Q --> VS{VS}
+    VS --> A
+    VS --> B
+    A --> R1["협동 가능<br/>도구 사용"]
+    B --> R2["압도적 힘<br/>공포 유발"]
+    style Q fill:#ff5722,color:#fff
+    style VS fill:#ffc107
+    style A fill:#2196f3,color:#fff
+    style B fill:#4caf50,color:#fff
 ```
-┌─────────────────────────────────────────────┐
-│          🥊 THE ULTIMATE DEBATE 🥊           │
-├─────────────────────────────────────────────┤
-│                                             │
-│        100명의 일반인 👥                    │
-│              VS                             │
-│        1마리의 고릴라 🦍                    │
-│                                             │
-│        "누가 이길까?"                       │
-│                                             │
-└─────────────────────────────────────────────┘
-```
+
+> "누가 이길까?" - 2025년 가장 뜨거웠던 논쟁
 
 ### 인터넷의 반응
 

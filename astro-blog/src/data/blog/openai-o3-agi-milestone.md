@@ -15,6 +15,9 @@ draft: false
 
 2024년 12월 20일, OpenAI는 'Shipmas' 이벤트 마지막 날에 **o3와 o3-mini**를 발표하며 AI 업계를 다시 한번 뒤흔들었습니다. OpenAI는 이 모델을 "AGI(인공일반지능)에 접근한 최초의 모델"이라고 주장했는데, 과연 그 근거는 무엇일까요?
 
+![OpenAI o3 모델 발표](https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-teal.jpg)
+*출처: [TechCrunch - OpenAI o3 발표](https://techcrunch.com/2024/12/20/openai-announces-new-o3-model/)*
+
 ## 목차
 
 ## o3 모델 출시 타임라인
@@ -32,11 +35,23 @@ draft: false
 o3의 벤치마크 결과는 AI 커뮤니티에 충격을 안겨주었습니다:
 
 ### ARC-AGI 테스트
+
+```mermaid
+xychart-beta
+    title "ARC-AGI 점수 비교"
+    x-axis ["o1", "o3", "o3 고성능", "인간 평균"]
+    y-axis "점수" 0 --> 100
+    bar [32, 75.7, 87.5, 85]
+```
+
 - **o1 모델**: 최고 32점
 - **o3 모델**: 75.7점
 - **o3 (고성능 모드)**: 87.5점
 
 인간이 달성하는 평균 점수가 85점인 것을 고려하면, o3는 **세계 최초로 인간 능력을 넘어서는 ARC-AGI 점수**를 기록한 것입니다.
+
+![AI가 인간을 넘어선 순간](https://i.kym-cdn.com/entries/icons/original/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.png)
+*"인간 평균 점수를 넘었다고...?"*
 
 ### 기타 벤치마크
 
@@ -60,6 +75,20 @@ OpenAI는 o3를 "AGI에 도달한 첫 번째 모델"이라고 주장했지만, �
 - ARC-AGI는 단일 벤치마크일 뿐, AGI 인증 기준이 아님
 - 진정한 AGI는 범용적 문제 해결 능력을 의미
 - 특정 테스트 최적화 vs 일반 지능의 차이
+
+```mermaid
+flowchart LR
+    subgraph 찬성
+        A[ARC-AGI 인간 초과] --> B[다양한 분야 고성능]
+        B --> C[AGI 접근!]
+    end
+    subgraph 반대
+        D[단일 벤치마크] --> E[범용성 부족]
+        E --> F[AGI 아님]
+    end
+    C -.-> G{논쟁 중}
+    F -.-> G
+```
 
 ## 충격적인 비용 문제
 
@@ -128,6 +157,9 @@ o3는 분명 AI 역사에서 중요한 이정표입니다. 하지만 진정한 A
 3. 2025년은 AI 역사상 가장 흥미진진한 해가 될 것
 
 여러분은 o3가 AGI에 도달했다고 생각하시나요? 댓글로 의견을 나눠주세요!
+
+![AI 개발 비용 밈](https://i.kym-cdn.com/entries/icons/original/000/030/329/cover1.jpg)
+*"o3로 문제 하나 풀었는데 500만원 나왔어요"*
 
 ---
 

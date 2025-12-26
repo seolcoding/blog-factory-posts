@@ -37,15 +37,23 @@ ogImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200"
 
 2025년, **TypeScript가 Python과 JavaScript를 제치고 GitHub 1위 언어**가 되었습니다.
 
+```mermaid
+flowchart LR
+    subgraph Y2024["2024년"]
+        A1[1위 Python]
+        A2[2위 JavaScript]
+        A3[3위 TypeScript]
+    end
+    subgraph Y2025["2025년"]
+        B1[1위 TypeScript 🏆]
+        B2[2위 Python]
+        B3[3위 JavaScript]
+    end
+    Y2024 --> Y2025
+    style B1 fill:#3178c6,color:#fff
 ```
-📊 2025년 GitHub 언어 순위 변화
 
-2024년: Python > JavaScript > TypeScript
-                    ↓
-2025년: TypeScript > Python > JavaScript
-
-"타입 안전성이 대세가 되다"
-```
+> "타입 안전성이 대세가 되다"
 
 *출처: [Grey Matter - Developer Tool Trends 2025](https://greymatter.com/content-hub/2025-top-developer-tool-trends-mid-year-review/)*
 

@@ -34,15 +34,12 @@ ogImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200"
 
 ### SWE-bench 80.9% - 역대 최고
 
-```
-📊 SWE-bench 점수 (소프트웨어 엔지니어링)
-
-Claude Opus 4.5:  ████████████████████ 80.9% 🏆
-GPT-5:            ██████████████████   76.2%
-Gemini 3:         █████████████████    73.8%
-Claude Opus 4.1:  ██████████████       68.5%
-
-"코딩 벤치마크의 새 역사"
+```mermaid
+xychart-beta
+    title "SWE-bench 점수 비교 (소프트웨어 엔지니어링)"
+    x-axis ["Claude Opus 4.5", "GPT-5", "Gemini 3", "Claude 4.1"]
+    y-axis "점수 (%)" 0 --> 100
+    bar [80.9, 76.2, 73.8, 68.5]
 ```
 
 *출처: [Anthropic 공식 블로그](https://www.anthropic.com/news/claude-opus-4-5)*
@@ -68,19 +65,21 @@ Claude Opus 4.1:  ██████████████       68.5%
 
 ### 공식 플랫폼
 
-```
-🌐 Claude Opus 4.5 사용처
-
-공식 앱:
-├─ claude.ai (웹)
-├─ Claude 앱 (iOS/Android)
-└─ Claude API
-
-파트너 플랫폼:
-├─ Microsoft Foundry
-├─ GitHub Copilot
-├─ Microsoft Copilot Studio
-└─ Azure AI
+```mermaid
+flowchart TB
+    subgraph 공식앱["🌐 공식 앱"]
+        A[claude.ai 웹]
+        B[Claude iOS/Android]
+        C[Claude API]
+    end
+    subgraph 파트너["🤝 파트너 플랫폼"]
+        D[Microsoft Foundry]
+        E[GitHub Copilot]
+        F[Copilot Studio]
+        G[Azure AI]
+    end
+    H[Claude Opus 4.5] --> 공식앱
+    H --> 파트너
 ```
 
 *출처: [GitHub Changelog](https://github.blog/changelog/2025-11-24-claude-opus-4-5-is-in-public-preview-for-github-copilot/)*

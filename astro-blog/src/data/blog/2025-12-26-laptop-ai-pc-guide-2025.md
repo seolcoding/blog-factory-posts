@@ -290,27 +290,20 @@ macOS 대안:
 
 ### AMD vs Intel vs Qualcomm
 
+```mermaid
+xychart-beta
+    title "2025년 NPU 성능 비교 (TOPS)"
+    x-axis ["Intel", "Qualcomm", "AMD", "Apple M4"]
+    y-axis "TOPS" 0 --> 60
+    bar [34, 45, 50, 38]
 ```
-🔄 2025년 NPU 비교
 
-【Qualcomm Snapdragon X Elite】
-├─ TOPS: 45
-├─ 전력 효율: 최고
-├─ Windows ARM 최적화
-└─ Copilot+ PC 대표
-
-【Intel Core Ultra (Meteor Lake)】
-├─ TOPS: 34
-├─ x86 호환성
-├─ 기존 앱 호환
-└─ 안정성
-
-【AMD Ryzen AI (Strix Point)】
-├─ TOPS: 50+
-├─ 그래픽 성능 우수
-├─ 게이밍 겸용
-└─ 가성비
-```
+| 프로세서 | TOPS | 강점 |
+|---------|------|------|
+| **Qualcomm X Elite** | 45 | 전력 효율 최고 |
+| **Intel Core Ultra** | 34 | x86 호환성 |
+| **AMD Ryzen AI** | 50+ | 그래픽/가성비 |
+| **Apple M4** | 38 | 생태계 통합 |
 
 *출처: [SkyHan AI PC 가이드](https://skyhansig.com/entry/2025년-AI-PC-완벽-가이드-NPU-Copilot-PC-온디바이스-AI의-모든-것-AMD-Intel-Qualcomm-프로세서-비교와-최고의-AI-노트북-추천까지)*
 

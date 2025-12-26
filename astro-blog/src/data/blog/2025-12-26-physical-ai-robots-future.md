@@ -35,20 +35,13 @@ ogImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200"
 
 ### 기존 AI vs Physical AI
 
-```
-📊 AI 진화의 단계
-
-1세대: 규칙 기반 AI
-       "if-then-else"
-
-2세대: 머신러닝
-       "데이터로 학습"
-
-3세대: 생성형 AI (현재)
-       "텍스트, 이미지 생성"
-
-4세대: Physical AI (다음) 🚀
-       "현실 세계 이해 + 행동"
+```mermaid
+timeline
+    title AI 진화의 단계
+    1세대 : 규칙 기반 AI (if-then-else)
+    2세대 : 머신러닝 (데이터로 학습)
+    3세대 : 생성형 AI (텍스트, 이미지 생성)
+    4세대 : Physical AI 🚀 (현실 세계 이해 + 행동)
 ```
 
 ### Physical AI = 물리적 자동화 + 의사결정 자동화

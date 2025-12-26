@@ -15,6 +15,9 @@ draft: false
 
 2025년, AI 도구 개발의 **게임 체인저**가 등장했습니다. **MCP(Model Context Protocol)**는 이제 OpenAI, Google, Microsoft가 모두 채택한 AI 통합의 새로운 표준입니다.
 
+![MCP - AI 도구 연결 표준](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800)
+*출처: [Unsplash - 네트워크 이미지](https://unsplash.com)*
+
 ## 목차
 
 ## MCP란 무엇인가?
@@ -23,18 +26,20 @@ MCP(Model Context Protocol)는 애플리케이션이 **LLM에 컨텍스트를 �
 
 ### 핵심 개념
 
-```
-Before MCP:
-App A → [커스텀 연동] → Claude
-App B → [커스텀 연동] → GPT
-App C → [커스텀 연동] → Gemini
-(각각 다른 방식으로 연동 필요)
-
-After MCP:
-App A ─┐
-App B ─┼─ [MCP 표준] → 모든 LLM
-App C ─┘
-(하나의 표준으로 모든 AI 연동)
+```mermaid
+flowchart LR
+    subgraph Before["❌ Before MCP"]
+        A1[App A] -->|커스텀| C1[Claude]
+        A2[App B] -->|커스텀| G1[GPT]
+        A3[App C] -->|커스텀| Gem[Gemini]
+    end
+    subgraph After["✅ After MCP"]
+        B1[App A] --> MCP[MCP 표준]
+        B2[App B] --> MCP
+        B3[App C] --> MCP
+        MCP --> All[모든 LLM]
+    end
+    style MCP fill:#6f6
 ```
 
 ### 비유로 이해하기

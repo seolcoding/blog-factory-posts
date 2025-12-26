@@ -14,6 +14,9 @@ draft: false
 
 역대 두 번째로 많이 팔린 게임 시리즈의 최신작, **GTA 6**가 드디어 모습을 드러냈습니다. 출시일 연기 논란부터 두 번째 트레일러 추측까지, 알아야 할 모든 것을 정리했습니다.
 
+![GTA 6 바이스 시티 공식 스크린샷](https://www.gamespot.com/a/uploads/scale_super/1179/11799911/4488975-vice_city_01.jpg)
+*출처: [GameSpot - Rockstar Games 공식 스크린샷](https://www.gamespot.com/gallery/gta-6-screenshots-images/2900-6525/)*
+
 ## 목차
 
 ## 출시일 확정: 2026년 11월
@@ -30,12 +33,25 @@ draft: false
 
 ### 왜 연기되었나?
 
+```mermaid
+flowchart TD
+    A[2023년 12월<br/>2025년 출시 발표] --> B[2024년 5월<br/>2025년 가을 구체화]
+    B --> C[2024년 11월<br/>2026년 5월 연기]
+    C --> D[2025년 11월<br/>2026년 11월 19일 최종]
+    D --> E{출시 예정}
+    style D fill:#f96,stroke:#333
+    style E fill:#6f6,stroke:#333
+```
+
 락스타 게임즈는 공식적인 이유를 밝히지 않았지만, 업계에서는:
 - 차세대 콘솔 최적화
 - 방대한 오픈월드 완성도
 - GTA 온라인 통합 서비스
 
 등을 이유로 추정하고 있습니다.
+
+![GTA 6 연기 소식을 들은 팬들의 반응](https://i.imgflip.com/4/1yxkcp.jpg)
+*"2025년 출시된다더니..."*
 
 ## 첫 번째 트레일러 분석
 
@@ -78,6 +94,9 @@ draft: false
 ## 게임 상세 정보
 
 ### 주인공: 루시아
+
+![GTA 6 주인공 루시아 - 시리즈 최초 여성 플레이어블 캐릭터](https://www.gamespot.com/a/uploads/scale_super/1179/11799911/4488915-lucia_caminos_02.jpg)
+*출처: [GameSpot - Rockstar Games 공식 캐릭터 이미지](https://www.gamespot.com/gallery/gta-6-screenshots-images/2900-6525/)*
 
 | 항목 | 내용 |
 |------|------|
@@ -183,6 +202,9 @@ GTA 6는 단순한 게임이 아닌 **문화 현상**이 될 것입니다:
 - 🎮 **PS5, Xbox Series X/S** 동시 출시
 
 12년의 기다림, 이제 1년 남았습니다!
+
+![GTA 6 발매일 기다리는 게이머들](https://i.kym-cdn.com/entries/icons/original/000/006/595/1262055260350.jpg)
+*"GTA 5가 나올 때 대학생이었는데, GTA 6 나올 때는 직장인이네..."*
 
 ---
 

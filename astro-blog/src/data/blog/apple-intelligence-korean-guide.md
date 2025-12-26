@@ -14,6 +14,9 @@ draft: false
 
 2025년 4월 1일, Apple Intelligence가 드디어 **한국어를 지원**하기 시작했습니다. iOS 18.4, iPadOS 18.4, macOS Sequoia 15.4에서 사용할 수 있는 모든 기능을 알아보겠습니다.
 
+![Apple Intelligence](https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800)
+*출처: [Unsplash - Apple 기기 이미지](https://unsplash.com)*
+
 ## 목차
 
 ## Apple Intelligence란?
@@ -57,16 +60,12 @@ Apple Intelligence는 Apple의 **개인 맞춤형 AI** 시스템으로, iOS 18, 
 
 ## 한국어 지원 타임라인
 
-```
-2024년 10월 29일
-└── 미국 영어 최초 지원
-
-2024년 12월
-└── 영어권 국가 확대 (영국, 호주 등)
-
-2025년 4월 1일
-└── 한국어 지원 시작! 🇰🇷
-    (프랑스어, 독일어, 일본어, 중국어 등 동시)
+```mermaid
+timeline
+    title Apple Intelligence 한국어 지원 타임라인
+    2024-10-29 : 미국 영어 최초 지원
+    2024-12 : 영어권 국가 확대
+    2025-04-01 : 한국어 지원 시작! 🇰🇷
 ```
 
 ## 주요 기능
