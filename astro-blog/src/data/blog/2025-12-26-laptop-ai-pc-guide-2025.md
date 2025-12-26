@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T14:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 노트북 완벽 가이드: AI PC 원년, 맥북 M4 vs Copilot+ PC"
 slug: laptop-ai-pc-guide-2025
 featured: false

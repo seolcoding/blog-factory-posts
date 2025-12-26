@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T08:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "Claude Opus 4.5 완벽 가이드: 5시간 자율 코딩, SWE-bench 80.9%의 비밀"
 slug: claude-opus-4-5-review-2025
 featured: false

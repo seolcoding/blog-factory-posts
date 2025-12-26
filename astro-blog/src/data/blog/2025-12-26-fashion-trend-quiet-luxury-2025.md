@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T22:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 패션 트렌드: 올드머니룩, 콰이어트 럭셔리, MZ가 선택한 스타일"
 slug: fashion-trend-quiet-luxury-2025
 featured: false

@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T16:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 박스오피스 총정리: 슈퍼맨 리부트, 마블 부활, 한국영화 반격!"
 slug: box-office-movie-trend-2025
 featured: false

@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T20:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 웹툰 대폭발: 넷플릭스 드라마화 30배 역주행, K웹툰 1.4조 시대"
 slug: webtoon-netflix-drama-trend-2025
 featured: false

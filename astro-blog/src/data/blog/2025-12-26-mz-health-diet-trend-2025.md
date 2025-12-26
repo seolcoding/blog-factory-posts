@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T13:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 MZ 건강 트렌드: 헬시플레저, 프리다이빙, 여자축구까지"
 slug: mz-health-diet-trend-2025
 featured: false

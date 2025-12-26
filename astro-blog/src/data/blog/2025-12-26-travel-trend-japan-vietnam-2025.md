@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T18:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 해외여행 트렌드: 일본 1위, 베트남 부상, 슬로우 트래블 시대"
 slug: travel-trend-japan-vietnam-2025
 featured: false

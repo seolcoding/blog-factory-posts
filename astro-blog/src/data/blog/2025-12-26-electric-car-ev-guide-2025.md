@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T17:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 전기차 구매 가이드: 아이오닉9 vs EV9, 테슬라 모델Y까지 완벽 비교"
 slug: electric-car-ev-guide-2025
 featured: false

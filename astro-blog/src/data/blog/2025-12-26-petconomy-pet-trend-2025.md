@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T23:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 펫코노미 대폭발: 반려동물 시장 21조, MZ가 이끄는 펫휴머니제이션"
 slug: petconomy-pet-trend-2025
 featured: false

@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T15:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "K-POP 2025 연말결산: BTS 완전체 복귀, 뉴진스 분쟁, 에스파 정상 유지까지"
 slug: kpop-year-review-2025-bts
 featured: true

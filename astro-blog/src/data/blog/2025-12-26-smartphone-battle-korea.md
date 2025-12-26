@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T04:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 스마트폰 대전: 갤럭시 82% 점유율의 비밀과 세대별 반전 드라마"
 slug: smartphone-battle-korea-2025
 featured: false

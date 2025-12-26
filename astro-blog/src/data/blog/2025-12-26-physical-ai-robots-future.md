@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T06:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "Physical AI: 2026년 AI의 다음 물결, 로봇과 현실세계를 연결하다"
 slug: physical-ai-robots-future-2026
 featured: false

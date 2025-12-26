@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T21:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 디저트 트렌드: 두바이 초콜릿 1000% 폭발, 식감 디저트, 말차 전성시대"
 slug: dessert-cafe-trend-dubai-chocolate-2025
 featured: false

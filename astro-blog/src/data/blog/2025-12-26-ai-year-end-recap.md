@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T02:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 AI 연말 결산: AI 버블 논쟁부터 디즈니 x Sora까지"
 slug: 2025-ai-year-end-recap
 featured: true

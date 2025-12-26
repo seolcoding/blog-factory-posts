@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T14:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "닌텐도 스위치2 완전정복: 648,000원, 6월 5일 출시! 2025 게임 트렌드 총정리"
 slug: nintendo-switch-2-gaming-trend-2025
 featured: true

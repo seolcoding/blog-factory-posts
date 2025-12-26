@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T00:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 modDatetime: 2025-12-26T00:30:00Z
 title: "바이브 코딩 완벽 가이드: AI로 코딩하는 새로운 패러다임"
 slug: vibe-coding-guide

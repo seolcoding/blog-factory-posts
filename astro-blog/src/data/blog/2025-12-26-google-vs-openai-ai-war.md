@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T05:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 AI 전쟁: 구글의 역전극, OpenAI의 '코드 레드' 선언"
 slug: google-vs-openai-ai-war-2025
 featured: true

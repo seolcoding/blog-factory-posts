@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T12:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "비트코인 2025 연말결산: $126K 사상 최고가에서 $87K까지, 롤러코스터의 해"
 slug: bitcoin-crypto-year-review-2025
 featured: false

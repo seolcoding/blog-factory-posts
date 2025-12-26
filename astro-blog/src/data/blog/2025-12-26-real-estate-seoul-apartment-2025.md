@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T19:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 서울 부동산 전망: 슈퍼사이클 시작? 전세 폭등, 양극화 심화"
 slug: real-estate-seoul-apartment-2025
 featured: false

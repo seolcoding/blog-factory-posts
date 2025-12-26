@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T11:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 취업 대격변: AI 면접 시대, 자소서 70%가 AI로 작성된다"
 slug: job-market-ai-interview-2025
 featured: true

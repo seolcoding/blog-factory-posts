@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T03:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025년 개발자 트렌드: TypeScript가 GitHub 1위 언어가 된 해"
 slug: developer-trends-typescript-era
 featured: true

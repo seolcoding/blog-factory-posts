@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T10:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025 크리스마스 트렌드 총정리: 광화문 마켓 164만명, MZ 핫플 완벽 가이드"
 slug: christmas-trends-korea-2025
 featured: false

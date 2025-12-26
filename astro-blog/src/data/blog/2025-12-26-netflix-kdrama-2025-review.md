@@ -1,6 +1,6 @@
 ---
 author: Blog Factory
-pubDatetime: 2025-12-26T09:00:00Z
+pubDatetime: 2025-12-25T12:00:00Z
 title: "2025년 K-드라마 총결산: 오징어게임 완결, 폭군의 셰프 17% 돌파까지"
 slug: netflix-kdrama-2025-review
 featured: true
