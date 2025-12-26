@@ -3,6 +3,7 @@
 __version__ = "0.1.0"
 
 from .config import settings
+from .content_enricher import enricher
 from .executor import executor
 from .models import BlogPost, PublishResult, Topic, TopicResearch
 from .orchestrator import Orchestrator, run_cycle
@@ -14,6 +15,7 @@ __all__ = [
     "PublishResult",
     "Topic",
     "TopicResearch",
+    "enricher",
     "executor",
     "run_cycle",
     "settings",
