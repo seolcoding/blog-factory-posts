@@ -2,8 +2,8 @@
 
 ## Current Status
 - **Iteration**: 14
-- **Total Posts**: 33
-- **Last Update**: 2025-12-26 13:45 KST
+- **Total Posts**: 35
+- **Last Update**: 2025-12-26 14:00 KST
 
 ## Iteration 14 Summary
 
@@ -12,7 +12,7 @@
    - Added base prefix to Card, Tag, Layout, PostDetails, RSS components
    - All internal links now correctly include `/blog-factory-posts/`
 
-2. ✅ Created 7 new trending blog posts:
+2. ✅ Created 9 new trending blog posts:
    - `openai-o3-agi-milestone.md` - OpenAI o3 and AGI analysis
    - `2025-us-stock-investment-guide.md` - US stock trends, Tesla FSD
    - `2025-education-ai-revolution.md` - Education AI trends
@@ -20,9 +20,11 @@
    - `korea-ai-startups-2025.md` - Korean AI startups (Liner, Wrtn, etc.)
    - `ai-coding-agents-comparison-2025.md` - Claude Code vs Devin vs Cursor
    - `apple-intelligence-korean-guide.md` - Apple Intelligence Korean support
+   - `mcp-model-context-protocol-guide.md` - MCP development guide (featured)
+   - `gta6-2026-release-info.md` - GTA6 release information
 
 ### Blog Stats
-- Total posts: 33
+- Total posts: 35
 - Deployed to: https://seolcoding.github.io/blog-factory-posts/
 - Framework: Astro + AstroPaper theme
 
