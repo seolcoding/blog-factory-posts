@@ -30,7 +30,7 @@ export interface Props {
   /** Preferred source to try first */
   preferredSource?: ImageSource;
   /** Image size preset */
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | "hero" | "full";
   /** Custom width in pixels (overrides size) */
   width?: number;
   /** Whether to show attribution below the image */
@@ -58,7 +58,7 @@ export interface Props {
 const {
   query,
   articleUrl,
-  sources = ["wikipedia", "ddg", "pexels"],
+  sources = ["ddg", "wikipedia", "pexels"],  // Real images first, stock as fallback
   preferredSource,
   size = "medium",
   width: customWidth,
@@ -74,11 +74,13 @@ const {
   orientation,
 } = Astro.props;
 
-// Size presets in pixels
+// Size presets in pixels (enlarged for modern displays)
 const sizeMap: Record<string, number> = {
-  small: 200,
-  medium: 400,
-  large: 600,
+  small: 400,
+  medium: 800,
+  large: 1200,
+  hero: 1600,
+  full: 1920,
 };
 
 const width = customWidth ?? sizeMap[size] ?? 400;
@@ -112,9 +114,11 @@ const sourceLabel = image?.source || "";
 
 // Container width class based on size
 const widthClass: Record<string, string> = {
-  small: "max-w-[200px]",
-  medium: "max-w-[400px]",
-  large: "max-w-[600px]",
+  small: "max-w-[400px]",
+  medium: "max-w-[800px]",
+  large: "max-w-[1200px]",
+  hero: "max-w-full",
+  full: "max-w-full w-full",
 };
 
 // Source badge colors
