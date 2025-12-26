@@ -1,6 +1,6 @@
 ---
 title: "2025년 최고의 바이럴 밈 총정리: Bombardiro Crocodilo부터 Studio Ghibli AI까지 🦎✈️"
-date: 2025-12-26T12:00:00+09:00
+date: 2025-12-25T20:00:00+09:00
 categories: [문화, 트렌드]
 tags: [밈, 바이럴, ItalianBrainrot, 지브리AI, 2025트렌드, 인터넷문화]
 description: "2025년 인터넷을 뒤흔든 바이럴 밈들! Italian Brainrot, Studio Ghibli AI 필터, 100명 vs 고릴라 논쟁까지 한눈에 정리합니다."
