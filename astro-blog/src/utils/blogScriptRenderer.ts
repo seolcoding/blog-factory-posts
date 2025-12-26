@@ -33,6 +33,8 @@ function renderImageSource(source: ImageSource): string {
     case "unsplash":
       const orientation = source.orientation ? ` orientation="${source.orientation}"` : "";
       return `query="${source.query}" sources={["unsplash"]}${orientation}`;
+    default:
+      return "";
   }
 }
 
@@ -51,8 +53,8 @@ function renderHeading(level: "h2" | "h3" | "h4", text: string): string {
 
 function renderImage(beat: ImageBeat): string {
   const sourceProps = renderImageSource(beat.source);
-  const sizeMap = { small: "small", medium: "medium", large: "large", hero: "hero", full: "full" };
-  const size = sizeMap[beat.size] || "large";
+  const sizeMap: Record<string, string> = { small: "small", medium: "medium", large: "large", hero: "hero", full: "full" };
+  const size = sizeMap[beat.size || "large"] || "large";
   const caption = beat.caption ? ` caption="${beat.caption}"` : "";
   const alt = beat.alt ? ` alt="${beat.alt}"` : "";
   const float = beat.float && beat.float !== "none" ? ` class="float-${beat.float}"` : "";
@@ -98,7 +100,8 @@ function renderStatGrid(beat: StatGridBeat): string {
   const gridClass = `grid grid-cols-1 md:grid-cols-${cols} gap-4 my-8`;
 
   const stats = beat.stats
-    .map((s) => renderStatCard(s.label, s.value, s.description, s.trend))
+    .map((s: { label: string; value: string; description?: string; trend?: "up" | "down" | "neutral" }) =>
+      renderStatCard(s.label, s.value, s.description, s.trend))
     .join("\n");
 
   return `<div class="${gridClass}">
@@ -119,7 +122,7 @@ function renderTable(beat: TableBeat): string {
 
 function renderTimeline(beat: TimelineBeat): string {
   const items = beat.items
-    .map((item) => {
+    .map((item: { date: string; title: string; description?: string; status?: "completed" | "current" | "upcoming" }) => {
       const desc = item.description ? ` description="${item.description}"` : "";
       const status = item.status ? ` status="${item.status}"` : "";
       return `  <TimelineItem
