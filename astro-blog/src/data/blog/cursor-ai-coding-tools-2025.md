@@ -15,6 +15,9 @@ draft: false
 
 2025년, 개발자들 사이에서 가장 핫한 도구는 단연 **Cursor IDE**입니다. "바이브 코딩(Vibe Coding)"이라는 새로운 개발 패러다임을 대중화시킨 Cursor, 과연 어떤 도구일까요?
 
+![Cursor IDE 인터페이스 - AI 채팅과 코드 편집이 통합된 화면](https://www.cursor.com/assets/videos/cpp/1.webp)
+*출처: [Cursor 공식 사이트](https://cursor.com)*
+
 ## 목차
 
 ## Cursor란 무엇인가?
@@ -24,6 +27,14 @@ Cursor는 **AI 기반 통합 개발 환경(IDE)**으로, Visual Studio Code를 �
 > Fortune 500 기업 중 **절반 이상**이 Cursor를 사용하고 있습니다.
 
 ### VS Code와의 관계
+
+```mermaid
+flowchart LR
+    A[VS Code] -->|포크| B[Cursor]
+    B --> C[AI 네이티브 통합]
+    B --> D[확장 호환성 유지]
+    B --> E[원클릭 마이그레이션]
+```
 
 | 항목 | VS Code | Cursor |
 |------|---------|--------|
@@ -62,6 +73,9 @@ async def login(user: UserLogin):
 
 2025년 12월에 발표된 새로운 기능:
 
+![Cursor Visual Editor - 드래그 앤 드롭으로 컴포넌트 편집](https://www.starkinsider.com/wp-content/uploads/2025/12/cursor-visual-editor-screenshot.jpg)
+*출처: [Stark Insider](https://www.starkinsider.com/2025/12/cursor-visual-editor-ide-web-design.html)*
+
 | 기능 | 설명 |
 |------|------|
 | 드래그 앤 드롭 | 컴포넌트 시각적 재배치 |
@@ -71,11 +85,15 @@ async def login(user: UserLogin):
 
 ### 3. 다중 AI 모델 지원
 
-```
-GPT-4o          ✅ 지원
-Claude 4 Sonnet ✅ 지원
-Claude 3.5      ✅ 지원
-자체 모델        ✅ Composer
+```mermaid
+graph TB
+    subgraph "Cursor가 지원하는 AI 모델"
+        A[GPT-4o]
+        B[Claude 4 Sonnet]
+        C[Claude 3.5]
+        D[Composer<br/>자체 모델]
+    end
+    E[사용자] --> A & B & C & D
 ```
 
 ### 4. 컨텍스트 인식 코딩
@@ -100,7 +118,27 @@ Claude 3.5      ✅ 지원
 
 최근 과금 방식이 개편되어 경쟁 서비스 대비 **과금 부담이 가장 큰 편**입니다.
 
+![개발자들이 Cursor 요금제 보고 지갑 확인할 때](https://i.imgflip.com/65939r.jpg)
+*"Pro 플랜 결제하고 난 후 내 지갑"*
+
 ## 경쟁 도구 비교
+
+### AI 코딩 도구 생태계
+
+```mermaid
+quadrantChart
+    title AI 코딩 도구 포지셔닝
+    x-axis "CLI 기반" --> "GUI 기반"
+    y-axis "저비용" --> "고비용"
+    quadrant-1 "프리미엄 GUI"
+    quadrant-2 "프리미엄 CLI"
+    quadrant-3 "가성비 CLI"
+    quadrant-4 "가성비 GUI"
+    "Cursor": [0.9, 0.8]
+    "Copilot": [0.7, 0.4]
+    "Claude Code": [0.2, 0.5]
+    "Windsurf": [0.85, 0.3]
+```
 
 ### Cursor vs GitHub Copilot vs Claude Code vs Windsurf
 
@@ -138,6 +176,12 @@ Claude 3.5      ✅ 지원
 
 ### 1. 효과적인 프롬프트 작성
 
+```mermaid
+flowchart LR
+    A[❌ 모호한 요청<br/>'로그인 만들어줘'] --> B[AI 혼란]
+    C[✅ 구체적 요청<br/>'Next.js + NextAuth<br/>+ Prisma'] --> D[정확한 결과]
+```
+
 ```markdown
 ❌ 비효율적
 "로그인 기능 만들어줘"
@@ -173,6 +217,14 @@ Cmd/Ctrl + K → "이 함수 리뷰해줘"
 
 ### 단계별 가이드
 
+```mermaid
+flowchart TD
+    A[1. Cursor 다운로드] --> B[2. 설치 후 실행]
+    B --> C[3. Import VS Code Settings]
+    C --> D[4. 확장 호환 확인]
+    D --> E[🎉 마이그레이션 완료]
+```
+
 1. **Cursor 다운로드**: [cursor.com](https://cursor.com)
 2. **설치 후 실행**
 3. **설정 가져오기**: `Import VS Code Settings` 클릭
@@ -195,10 +247,17 @@ Cmd/Ctrl + K → "이 함수 리뷰해줘"
 
 ### 다른 도구 추천
 
-- **CLI 선호** → Claude Code
-- **비용 민감** → Windsurf, Claude Code
-- **Microsoft 생태계** → GitHub Copilot
-- **JetBrains 사용자** → Copilot 또는 Cursor (with adapter)
+```mermaid
+flowchart LR
+    A{당신의 선호는?} --> B[CLI 선호]
+    A --> C[비용 민감]
+    A --> D[MS 생태계]
+    A --> E[JetBrains]
+    B --> F[Claude Code]
+    C --> G[Windsurf / Claude Code]
+    D --> H[GitHub Copilot]
+    E --> I[Copilot 또는 Cursor]
+```
 
 ## 결론: AI 코딩 시대의 표준
 
@@ -207,6 +266,9 @@ Cursor는 "바이브 코딩"이라는 새로운 개발 패러다임을 정립한
 - 🏆 GUI 기반 AI IDE 중 **최고 수준**의 완성도
 - 💰 비용 부담이 크지만, **생산성 향상**으로 충분히 상쇄
 - 🔄 빠른 업데이트로 **경쟁력 유지**
+
+![개발자가 Cursor로 한 시간 만에 프로젝트 완성했을 때](https://i.imgflip.com/4/1ihzfe.jpg)
+*"Cursor 쓰기 전 vs 쓴 후의 나"*
 
 개발자라면 한 번쯤 Cursor를 경험해보는 것을 권장합니다. 코딩에 대한 관점이 바뀔 수 있습니다.
 
